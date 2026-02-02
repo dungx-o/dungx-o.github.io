@@ -80,6 +80,7 @@ body {
   right: 0;
   z-index: 20;
   background: var(--bg-primary);
+  border-bottom: 1px solid var(--card-background);
 }
 
 .navbar .container {
@@ -103,9 +104,15 @@ body {
   font-weight: var(--weight-semibold);
 }
 
+.navbar .nav-menu .theme-switch {
+  margin: 0 1rem;
+  display: flex;
+  align-items: center;
+}
+
 .navbar #logo img {
   display: block;
-  width: 40px;
+  width: 70px;
 }
 
 .navbar .btn {
@@ -154,6 +161,27 @@ body {
   to {
     transform: translateY(-10px);
   }
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+#scroll-to-projects {
+  transition: opacity 0.3s ease;
+}
+
+#scroll-to-projects:hover {
+  opacity: 0.8;
+}
+
+#scroll-to-projects i {
+  animation: arrowBounce 1.2s ease-in-out infinite;
 }
 
 .division {
@@ -331,4 +359,16 @@ body {
     border-radius: 5px;
     width: 80%;
   }
+}
+
+.nav-link {
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+/* Khung màu khi active */
+.nav-link.active {
+  border: 2px solid #4f46e5;
+  background-color: rgba(79,70,229,0.1);
 }
