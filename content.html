@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script src="https://cdn.tailwindcss.com"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -41,40 +42,16 @@
     />
     <meta
       property="twitter:image"
-      content="https://user-images.githubusercontent.com/62628408/150613011-b78a7f5a-0af1-4312-aab0-0022e7258693.png"
+      content="assets/favicon/mylogo.png"
     />
 
     <!-- Link -->
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="assets/favicon/apple-touch-icon.png"
-    />
+    <!-- Favicon / Logo for URL -->
     <link
       rel="icon"
       type="image/png"
-      sizes="16x16"
-      href="/assets/favicon/favicon-16x16.png"
+      href="assets/favicon/mylogo.png"
     />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="assets/favicon/favicon-32x32.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="192x192"
-      href="assets/favicon/android-chrome-192x192.png"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="512x512"
-      href="assets/favicon/android-chrome-512x512.png"
-    />
-    <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico" />
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
     <link
       rel="stylesheet"
@@ -93,15 +70,23 @@
           <!-- Logo -->
           <h1 id="logo">
             <a href="https://github.com/CommunityPro/portfolio-html"
-              ><img src="./assets/favicon/mylogo.png" alt="Logo của tôi" 
+              ><img id="logo-img" src="./assets/favicon/mylogo.png" alt="Logo của tôi" 
             /></a>
           </h1>
           <!-- Navbar links -->
           <ul class="nav-menu">
             <li><a class="nav-link" href="index.html">Home</a></li>
-            <li><a class="nav-link" href="content.html">Content</a></li>
-            <li><a class="nav-link" href="projects.html">Projects</a></li>
             <li><a class="nav-link" href="about.html">About</a></li>
+            <li><a class="nav-link" href="projects.html">Projects</a></li>
+            <li><a class="nav-link" href="content.html">Content</a></li>
+            <!-- Dark mode toggle -->
+            <li class="theme-switch">
+              <input type="checkbox" id="switch" />
+              <label for="switch" class="toggle-icons">
+                <img class="sun" src="assets/icon/sun.svg" alt="sun" />
+                <img class="moon" src="assets/icon/moon.svg" alt="moon" />
+              </label>
+            </li>
           </ul>
           
           <div class="hamburger">
@@ -113,37 +98,89 @@
       </nav>
 
       <section class="header-container">
-        <img
-          class="profile-image"
-          src="assets/profile-image.svg"
-          alt=""
-        />
-        <h1>Hi I'm Franklin</h1>
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 w-full max-w-7xl mx-auto">
+          <!-- Text content - Left side -->
+          <div class="flex-1 md:text-left text-center md:max-w-2xl">
+            <h1>Hi, I'm Dũng.</h1>
 
-        <div class="content-text">
-          <h2>Building digital</h2>
-          <h2>products, brands, and experience.</h2>
+            <div class="content-text">
+              <h2>Aspiring ML/AI Engineer</h2>
 
-          <p>
-            A Frontend Developer and Visual Designer with experience in web
-            design, brand identity and product design.
-          </p>
+              <!-- Ảnh chỉ hiển thị trên mobile, nằm ngay dưới dòng Aspiring ML/AI Engineer -->
+              <div class="flex justify-center mt-6 md:hidden">
+                <img src="assets/images/photo.png"
+                     loading="eager"
+                     class="profile-image w-full max-w-[18rem] aspect-[790/1189]"
+                     style="border-radius: 50% / 40%;"
+                     alt="">
+              </div>
+              
+              <p>Computer Science Student at Hanoi University of Science and Technology (HUST)</p>
+              
+              <p><strong>Hard skills:</strong> Python, C/C++, HTML, Bilingual (English, Vietnamese)</p>
+              
+              <p><strong>Key highlights:</strong> Third Prize in Vietnam Mathematical Olympiad (VMO), Silver Medal in National Student Mathematics Olympiad</p>
+              
+            </div>
+            
+            <a href="about.html" class="btn btn-secondary">
+              More about me <i class="fas fa-arrow-right"></i>
+            </a>
+          </div>
+
+          <!-- Image - Right side -->
+          <div class="relative justify-end hidden md:flex w-full md:w-1/2 md:pl-10">
+
+            <div class="relative z-10 w-full">
+
+              <!-- Profile image -->
+              <div class="relative z-10 px-6 md:px-10 flex items-center justify-center">
+                <!-- Background border -->
+                <div class="absolute z-0 
+                            border border-solid 
+                            bg-gradient-to-r from-white via-neutral-50 to-white 
+                            border-neutral-300"
+                     style="border-radius: 50% / 40%; width: 100%; max-width: 23rem; aspect-ratio: 790/1189; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                </div>
+                <img src="assets/images/photo.png"
+                     loading="eager"
+                     class="profile-image relative z-10 w-full aspect-[790/1189] 
+                            max-w-[21rem] mx-auto"
+                     style="border-radius: 50% / 40%;"
+                     alt="">
+              </div>
+
+            </div>
+          </div>
         </div>
-        <a
-          href="https://github.com/CommunityPro/portfolio-html"
-          class="btn btn-secondary"
-          target="_blank"
-          >Connect With Me</a
-        >
       </section>
     </header>
 
+    <!-- Divider -->
+    <div class="relative my-32 flex justify-center">
+      <div class="relative w-auto max-w-md px-5">
+        <div class="absolute w-full h-px 
+                    bg-gradient-to-r from-transparent to-white">
+        </div>
+        <div class="w-full h-px border-t border-solid border-neutral-300"></div>
+      </div>
+      <div id="scroll-to-projects" class="absolute flex items-center justify-center px-3 py-1.5 
+                  uppercase tracking-widest text-[0.6rem] 
+                  -translate-y-1/2 border border-solid rounded-lg
+                  left-1/2 -translate-x-1/2"
+           style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background); cursor: pointer;">
+        <p class="flex items-center gap-2">
+          Let's checkout my projects
+          <i class="fas fa-arrow-down" style="font-size: 0.5rem;"></i>
+        </p>
+      </div>
+    </div>
+
     <!-- Projects -->
     <section id="projects" class="project-container container">
-      <div class="division"></div>
       <div class="content-text">
         <h2>Projects</h2>
-        <p>Check out some of my personal and paid projects</p>
+        <p>Here are some of my recent projects. I'm continuously building, experimenting, and learning, so check back often to see what's new.</p>
       </div>
 
       <article class="project">
@@ -237,10 +274,11 @@
           </div>
         </div>
       </article>
+      
+      <a href="projects.html" class="btn btn-secondary">All my projects <i class="fas fa-arrow-right"></i
 
-      <a href="#" class="btn btn-secondary"
-        target="_blank" >See More <i class="fas fa-arrow-right"></i
-      ></a>
+        ></a>
+
     </section>
 
     <footer id="footer">
@@ -249,15 +287,15 @@
         <!-- Social links -->
         <div class="social">
           <a href="#" target="_blank"
-            ><img src="./assets/facebook-icon.svg" alt="Facebook"
+            ><img src="./assets/icon/facebook-icon.svg" alt="Facebook"
           /></a>
-          <a href="#" target="_blank"><img src="./assets/twitter-icon.svg" alt="Twitter" /></a>
+          <a href="#" target="_blank"><img src="./assets/icon/zalo-icon.svg" alt="Zalo" /></a>
           <a href="#" target="_blank"
-            ><img src="./assets/linkedin-icon.svg" alt="Linkedin"
+            ><img src="./assets/icon/linkedin-icon.svg" alt="Linkedin"
           /></a>
-          <a href="#" target="_blank"><img src="./assets/github-icon.svg" alt="GitHub" /></a>
+          <a href="#" target="_blank"><img src="./assets/icon/github-icon.svg" alt="GitHub" /></a>
           <a href="#" target="_blank"
-            ><img src="./assets/hashnode-icon.svg" alt="Hashnode"
+            ><img src="./assets/icon/hashnode-icon.svg" alt="Hashnode"
           /></a>
         </div>
         <!-- Attribution -->
@@ -278,7 +316,7 @@
       </div>
     </footer>
     <script src="js/script.js"></script>
-    
+
     <script>
       const links = document.querySelectorAll(".nav-link");
       const currentPage = window.location.pathname.split("/").pop();
@@ -288,6 +326,20 @@
           link.classList.add("active");
         }
       });
+
+      // Scroll to projects functionality
+      const scrollToProjects = document.getElementById('scroll-to-projects');
+      if (scrollToProjects) {
+        scrollToProjects.addEventListener('click', function() {
+          const projectsSection = document.getElementById('projects');
+          if (projectsSection) {
+            projectsSection.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'start' 
+            });
+          }
+        });
+      }
     </script>
     
   </body>

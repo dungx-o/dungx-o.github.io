@@ -1,52 +1,60 @@
+// ==================== NAVBAR MOBILE TOGGLE ====================
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
-hamburger.addEventListener("click", mobileMenu);
-
-function mobileMenu() {
-  hamburger.classList.toggle("active");
-  navMenu.classList.toggle("active");
+// Mở/đóng menu trên mobile khi bấm icon 3 gạch
+if (hamburger && navMenu) {
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
 }
 
-// Close navbar when link is clicked
+// Đóng navbar khi click vào 1 link trong menu
 const navLink = document.querySelectorAll(".nav-link");
 
-navLink.forEach((n) => n.addEventListener("click", closeMenu));
+navLink.forEach((n) =>
+  n.addEventListener("click", () => {
+    if (hamburger && navMenu) {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  })
+);
 
-function closeMenu() {
-  hamburger.classList.remove("active");
-  navMenu.classList.remove("active");
+// ==================== DARK MODE TOGGLE & LOGO ====================
+// Đổi logo theo theme hiện tại
+function updateLogo(theme) {
+  const logoImg = document.getElementById("logo-img");
+  if (!logoImg) return;
+
+  if (theme === "dark") {
+    logoImg.src = "./assets/favicon/mylogo-darkmode.png";
+  } else {
+    logoImg.src = "./assets/favicon/mylogo.png";
+  }
 }
 
-// Event Listeners: Handling toggle event
+// Lắng nghe sự kiện toggle dark/light mode
 const toggleSwitch = document.querySelector(
   '.theme-switch input[type="checkbox"]'
 );
 
+// Lưu theme người dùng chọn vào localStorage
 function switchTheme(e) {
-  if (e.target.checked) {
-    document.documentElement.setAttribute("data-theme", "dark");
-  } else {
-    document.documentElement.setAttribute("data-theme", "light");
-  }
+  const isDark = e.target.checked;
+  const theme = isDark ? "dark" : "light";
+
+  document.documentElement.setAttribute("data-theme", theme);
+  localStorage.setItem("theme", theme);
+  updateLogo(theme);
 }
 
-toggleSwitch.addEventListener("change", switchTheme, false);
-
-//  Store color theme for future visits
-
-function switchTheme(e) {
-  if (e.target.checked) {
-    document.documentElement.setAttribute("data-theme", "dark");
-    localStorage.setItem("theme", "dark"); //add this
-  } else {
-    document.documentElement.setAttribute("data-theme", "light");
-    localStorage.setItem("theme", "light"); //add this
-  }
+if (toggleSwitch) {
+  toggleSwitch.addEventListener("change", switchTheme, false);
 }
 
-// Save user preference on load
-
+// Áp dụng lại theme đã lưu khi load trang
 const currentTheme = localStorage.getItem("theme")
   ? localStorage.getItem("theme")
   : null;
@@ -54,14 +62,21 @@ const currentTheme = localStorage.getItem("theme")
 if (currentTheme) {
   document.documentElement.setAttribute("data-theme", currentTheme);
 
-  if (currentTheme === "dark") {
+  if (toggleSwitch && currentTheme === "dark") {
     toggleSwitch.checked = true;
   }
+
+  // Cập nhật logo theo theme đang dùng
+  updateLogo(currentTheme);
+} else {
+  // Mặc định light mode logo
+  updateLogo("light");
 }
 
-//Adding date
-
-let myDate = document.querySelector("#datee");
-
-const yes = new Date().getFullYear();
-myDate.innerHTML = yes;
+// ==================== FOOTER - NĂM HIỆN TẠI ====================
+// Tự động cập nhật năm hiện tại ở footer
+const dateElement = document.querySelector("#datee");
+if (dateElement) {
+  const currentYear = new Date().getFullYear();
+  dateElement.innerHTML = currentYear;
+}

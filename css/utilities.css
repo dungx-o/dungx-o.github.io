@@ -1,23 +1,25 @@
-/* ?This is where reusable styling of this template will be. 
-   !Will contain things like:
-   * Button styling
-   * Background color styling
-   * padding and margin
+/* 
+  Các class tái sử dụng (utilities):
+  - Container canh giữa nội dung
+  - Button styling
+  - Text, card, dark mode toggle...
 */
 
+/* ==================== CONTAINER CHUNG ==================== */
 .container {
   max-width: var(--width-medium);
   margin: 0 auto;
   padding: 1rem 2rem;
 }
 
+/* Hiệu ứng khi bôi chọn (select) tiêu đề */
 h1::selection,
 h2::selection {
   color: #111;
   background: var(--primary-color);
 }
 
-/* Buttons */
+/* ==================== BUTTONS ==================== */
 .btn {
   display: inline-block;
   padding: 0.75rem 1.9rem;
@@ -25,6 +27,7 @@ h2::selection {
   text-transform: uppercase;
   font-size: 0.82rem;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .btn-primary {
@@ -38,12 +41,12 @@ h2::selection {
   color: var(--bg-primary);
 }
 
-/* add hover to resume button */
+/* Hover cho button chính (ví dụ: nút tải CV) */
 .btn-primary:hover {
   background: var(--secondary-color);
 }
 
-/* Dark mode toggle */
+/* ==================== DARK MODE TOGGLE ==================== */
 #switch {
   display: none;
 }
@@ -72,7 +75,7 @@ h2::selection {
   transform: rotate(100deg);
 }
 
-/* Header Container */
+/* ==================== HEADER / HERO CONTAINER ==================== */
 .header-container {
   display: flex;
   flex-direction: column;
@@ -95,6 +98,7 @@ h2::selection {
   letter-spacing: -0.02em;
 }
 
+/* Text mô tả trong hero và các section */
 .content-text {
   text-align: left;
   margin: 0;
@@ -124,7 +128,7 @@ h2::selection {
   color: var(--text-color);
 }
 
-/* Project cards */
+/* ==================== PROJECT CARDS ==================== */
 .card {
   padding: 1rem;
   background: var(--card-background);
@@ -153,7 +157,7 @@ h2::selection {
   opacity: 1;
 }
 
-/* Project Images */
+/* ==================== ẢNH BACKGROUND CHO TỪNG PROJECT ==================== */
 
 /* project 1 */
 .card:nth-child(1) {
@@ -185,7 +189,7 @@ h2::selection {
   background: url(../assets/project/project-six.png) center center/cover;
 }
 
-/* Media Queries */
+/* ==================== MEDIA QUERIES ==================== */
 @media (max-width: 768px) {
   .header-container {
     margin-top: 7rem;
