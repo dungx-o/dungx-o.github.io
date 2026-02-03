@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- Tailwind CDN phục vụ các class tiện ích (flex, grid, responsive, ...) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Primary Meta Tags -->
+    <!-- Thông tin SEO cơ bản cho trang -->
     <title>Portfolio Template - Open source</title>
     <meta name="title" content="Portfolio Template - Open source" />
     <meta
@@ -13,7 +14,7 @@
       content="Build or customize your portfolio website using this super easy template. Free to use if you are a member of the community or a contributor to this project"
     />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Thẻ Open Graph dùng khi chia sẻ link lên Facebook/Zalo -->
     <meta property="og:type" content="website" />
     <meta
       property="og:url"
@@ -29,7 +30,7 @@
       content="https://user-images.githubusercontent.com/62628408/150613011-b78a7f5a-0af1-4312-aab0-0022e7258693.png"
     />
 
-    <!-- Twitter -->
+    <!-- Thẻ preview khi chia sẻ link lên Twitter/X -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta
       property="twitter:url"
@@ -45,8 +46,7 @@
       content="assets/favicon/mylogo.png"
     />
 
-    <!-- Link -->
-    <!-- Favicon / Logo for URL -->
+    <!-- Favicon / Logo hiển thị trên tab trình duyệt -->
     <link
       rel="icon"
       type="image/png"
@@ -63,23 +63,24 @@
     <link rel="stylesheet" href="css/utilities.css" />
   </head>
   <body>
+    <!-- ==================== HEADER / HERO SECTION ==================== -->
     <header id="hero">
       <!-- Navbar -->
       <nav class="navbar">
-        <div class="container">
-          <!-- Logo -->
+        <div class="max-w-5xl mx-auto px-5 flex justify-between items-center w-full">
+          <!-- Logo (tạm thời trỏ về repo template, nên đổi sang link cá nhân sau) -->
           <h1 id="logo">
             <a href="https://github.com/CommunityPro/portfolio-html"
               ><img id="logo-img" src="./assets/favicon/mylogo.png" alt="Logo của tôi" 
             /></a>
           </h1>
-          <!-- Navbar links -->
+          <!-- Navbar links điều hướng giữa các trang -->
           <ul class="nav-menu">
             <li><a class="nav-link" href="index.html">Home</a></li>
             <li><a class="nav-link" href="about.html">About</a></li>
             <li><a class="nav-link" href="projects.html">Projects</a></li>
             <li><a class="nav-link" href="content.html">Content</a></li>
-            <!-- Dark mode toggle -->
+            <!-- Nút chuyển Dark/Light mode -->
             <li class="theme-switch">
               <input type="checkbox" id="switch" />
               <label for="switch" class="toggle-icons">
@@ -89,6 +90,7 @@
             </li>
           </ul>
           
+          <!-- Nút menu cho màn hình nhỏ (mobile) -->
           <div class="hamburger">
             <span class="bar"></span>
             <span class="bar"></span>
@@ -97,16 +99,17 @@
         </div>
       </nav>
 
+      <!-- Hero giới thiệu ngắn gọn về bản thân -->
       <section class="header-container">
-        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 w-full max-w-7xl mx-auto">
-          <!-- Text content - Left side -->
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 w-full max-w-5xl mx-auto">
+          <!-- Text content - bên trái (title, mô tả ngắn, CTA) -->
           <div class="flex-1 md:text-left text-center md:max-w-2xl">
             <h1>Hi, I'm Dũng.</h1>
 
             <div class="content-text">
               <h2>Aspiring ML/AI Engineer</h2>
 
-              <!-- Ảnh chỉ hiển thị trên mobile, nằm ngay dưới dòng Aspiring ML/AI Engineer -->
+              <!-- Ảnh chỉ hiển thị trên mobile, nằm ngay dưới dòng "Aspiring ML/AI Engineer" -->
               <div class="flex justify-center mt-6 md:hidden">
                 <img src="assets/images/photo.png"
                      loading="eager"
@@ -123,25 +126,29 @@
               
             </div>
             
+            <!-- Nút dẫn sang trang giới thiệu chi tiết hơn -->
             <a href="about.html" class="btn btn-secondary">
               More about me <i class="fas fa-arrow-right"></i>
             </a>
           </div>
 
-          <!-- Image - Right side -->
+          <!-- Ảnh profile - bên phải (ẩn trên mobile, chỉ hiện từ md trở lên) -->
           <div class="relative justify-end hidden md:flex w-full md:w-1/2 md:pl-10">
 
             <div class="relative z-10 w-full">
 
-              <!-- Profile image -->
+              <!-- Khối ảnh profile + border bo tròn -->
               <div class="relative z-10 px-6 md:px-10 flex items-center justify-center">
-                <!-- Background border -->
-                <div class="absolute z-0 
-                            border border-solid 
-                            bg-gradient-to-r from-white via-neutral-50 to-white 
-                            border-neutral-300"
-                     style="border-radius: 50% / 40%; width: 100%; max-width: 23rem; aspect-ratio: 790/1189; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                <!-- Border nền phía sau ảnh để tạo hiệu ứng khung -->
+                <div
+                  class="absolute inset-1/2 z-0 
+                        w-full max-w-[23rem] aspect-[790/1189]
+                        -translate-x-1/2 -translate-y-1/2
+                        rounded-[50%/40%]
+                        border border-neutral-400
+                        bg-gradient-to-r from-white via-neutral-50 to-white">
                 </div>
+
                 <img src="assets/images/photo.png"
                      loading="eager"
                      class="profile-image relative z-10 w-full aspect-[790/1189] 
@@ -156,28 +163,23 @@
       </section>
     </header>
 
-    <!-- Divider -->
+    <!-- ==================== DIVIDER SCROLL TO PROJECTS ==================== -->
     <div class="relative my-32 flex justify-center">
-      <div class="relative w-auto max-w-md px-5">
-        <div class="absolute w-full h-px 
-                    bg-gradient-to-r from-transparent to-white">
-        </div>
-        <div class="w-full h-px border-t border-solid border-neutral-300"></div>
+      <div class="relative w-full max-w-5xl px-5">
+        <div class="w-full h-px bg-neutral-300 dark:bg-neutral-700"></div>
       </div>
-      <div id="scroll-to-projects" class="absolute flex items-center justify-center px-3 py-1.5 
-                  uppercase tracking-widest text-[0.6rem] 
-                  -translate-y-1/2 border border-solid rounded-lg
-                  left-1/2 -translate-x-1/2"
-           style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background); cursor: pointer;">
-        <p class="flex items-center gap-2">
-          Let's checkout my projects
-          <i class="fas fa-arrow-down" style="font-size: 0.5rem;"></i>
+      <div id="scroll-to-projects" class="absolute flex items-center justify-center px-4 py-1.5 uppercase tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-full left-1/2 -translate-x-1/2 shadow-sm cursor-pointer" style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background);">
+        <p class="flex items-center gap-2 leading-none">
+          Let's check out my projects
+          <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" />
+          </svg>
         </p>
       </div>
     </div>
-
-    <!-- Projects -->
-    <section id="projects" class="project-container container">
+    <!-- ==================== PROJECTS SECTION ==================== -->
+    <section id="projects" class="project-container container max-w-5xl mx-auto">
+      <!-- Tiêu đề + mô tả ngắn cho danh sách project -->
       <div class="content-text">
         <h2>Projects</h2>
         <p>Here are some of my recent projects. I'm continuously building, experimenting, and learning, so check back often to see what's new.</p>
@@ -185,7 +187,8 @@
 
       <article class="project">
         <!-- Project 1 -->
-        <div href="" class="card">
+        <!-- Thẻ card cho từng project (có thể thay nội dung bằng project thật) -->
+        <div class="card">
           <div class="project-info">
             <div class="project-bio">
               <h3>Project One</h3>
@@ -200,7 +203,7 @@
         </div>
 
         <!-- Project 2 -->
-        <div href="" class="card">
+        <div class="card">
           <div class="project-info">
             <div class="project-bio">
               <h3>Project Two</h3>
@@ -214,8 +217,8 @@
           </div>
         </div>
 
-        <!-- Porject 3 -->
-        <div href="" class="card">
+        <!-- Project 3 -->
+        <div class="card">
           <div class="project-info">
             <div class="project-bio">
               <h3>Project Three</h3>
@@ -230,7 +233,7 @@
         </div>
 
         <!-- Project 4 -->
-        <div href="" class="card">
+        <div class="card">
           <div class="project-info">
             <div class="project-bio">
               <h3>Project Four</h3>
@@ -245,7 +248,7 @@
         </div>
 
         <!-- Project 5 -->
-        <div href="" class="card">
+        <div class="card">
           <div class="project-info">
             <div class="project-bio">
               <h3>Project Five</h3>
@@ -260,7 +263,7 @@
         </div>
 
         <!-- Project 6 -->
-        <div href="" class="card">
+        <div class="card">
           <div class="project-info">
             <div class="project-bio">
               <h3>Project Six</h3>
@@ -275,67 +278,281 @@
         </div>
       </article>
       
-      <a href="projects.html" class="btn btn-secondary">All my projects <i class="fas fa-arrow-right"></i
-
+      <!-- Nút dẫn sang trang liệt kê đầy đủ tất cả project -->
+      <a href="projects.html" class="btn btn-secondary">View all my projects <i class="fas fa-arrow-right"></i
         ></a>
-
     </section>
 
+    <!-- ==================== DIVIDER SCROLL TO CONTENT ==================== -->
+    <div class="relative my-32 flex justify-center">
+      <div class="relative w-full max-w-5xl px-5">
+        <div class="w-full h-px bg-neutral-300 dark:bg-neutral-700"></div>
+      </div>
+      <div id="scroll-to-content" class="absolute flex items-center justify-center px-4 py-1.5 uppercase tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-full left-1/2 -translate-x-1/2 shadow-sm cursor-pointer" style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background);">
+        <p class="flex items-center gap-2 leading-none">
+          Let's check out my content
+          <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" />
+          </svg>
+        </p>
+      </div>
+    </div>
+
+    <!-- ==================== MY CONTENT SECTION ==================== -->
+    <section id="content-preview" class="project-container max-w-5xl mx-auto px-4">
+      <div class="content-text mb-10"> 
+        <h2 class="text-left">Content</h2>
+        <p class="text-left">
+          I use this space to share what I’m learning and discovering along my journey. Here are some of my recent posts.
+        </p>
+      </div>
+
+      <div class="w-full max-w-5xl mx-auto my-7 px-4 xl:px-0">
+        <div class="flex flex-col items-center">
+          <!-- LIST BÀI VIẾT BÊN TRÁI -->
+          <div class="w-full space-y-7">
+            <!-- Post 1 -->
+            <div
+              class="relative border border-transparent border cursor-pointer p-5 group rounded-2xl"
+              onclick="location.href='https://your-link-post-1.com'"
+            >
+              <div
+                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
+              ></div>
+              <div
+                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
+              ></div>
+              <div
+                class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4"
+              >
+                <!-- Ảnh bên trái -->
+                <img
+                  src="assets/images/post-1.png"
+                  alt="Post 1 thumbnail"
+                  class="w-20 h-20 rounded-xl object-cover flex-shrink-0"
+                />
+                <!-- Nội dung bên phải -->
+                <div>
+                  <h3 class="flex items-center mb-2">
+                    <a
+                      href="https://your-link-post-1.com"
+                      class="text-base font-bold leading-tight tracking-tight sm:text-lg dark:text-neutral-100"
+                    >
+                      How I Got Into Machine Learning
+                    </a>
+                  </h3>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                    A short story about my journey from math competitions to ML/AI.
+                  </p>
+                  <div class="mt-2.5 text-xs font-medium text-neutral-800 dark:text-neutral-300">
+                    Posted on February 1, 2026
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Post 2 -->
+            <div
+              class="relative border border-transparent border cursor-pointer p-5 group rounded-2xl"
+              onclick="location.href='https://your-link-post-2.com'"
+            >
+              <div
+                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
+              ></div>
+              <div
+                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
+              ></div>
+              <div
+                class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4"
+              >
+                <img
+                  src="assets/images/post-2.png"
+                  alt="Post 2 thumbnail"
+                  class="w-20 h-20 rounded-xl object-cover flex-shrink-0"
+                />
+                <div>
+                  <h3 class="flex items-center mb-2">
+                    <a
+                      href="https://your-link-post-2.com"
+                      class="text-base font-bold leading-tight tracking-tight sm:text-lg dark:text-neutral-100"
+                    >
+                      5 Lessons from Competitive Math for ML
+                    </a>
+                  </h3>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                    What Vietnam Mathematical Olympiad taught me about problem solving.
+                  </p>
+                  <div class="mt-2.5 text-xs font-medium text-neutral-800 dark:text-neutral-300">
+                    Posted on January 31, 2026
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Post 3 -->
+            <div
+              class="relative border border-transparent border cursor-pointer p-5 group rounded-2xl"
+              onclick="location.href='https://your-link-post-3.com'"
+            >
+              <div
+                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
+              ></div>
+              <div
+                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
+              ></div>
+              <div
+                class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4"
+              >
+                <img
+                  src="assets/images/post-3.png"
+                  alt="Post 3 thumbnail"
+                  class="w-20 h-20 rounded-xl object-cover flex-shrink-0"
+                />
+                <div>
+                  <h3 class="flex items-center mb-2">
+                    <a
+                      href="https://your-link-post-3.com"
+                      class="text-base font-bold leading-tight tracking-tight sm:text-lg dark:text-neutral-100"
+                    >
+                      Building My First ML Portfolio Project
+                    </a>
+                  </h3>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                    How I planned, built, and shipped my first real ML project.
+                  </p>
+                  <div class="mt-2.5 text-xs font-medium text-neutral-800 dark:text-neutral-300">
+                    Posted on January 30, 2026
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Post 4 -->
+            <div
+              class="relative border border-transparent border cursor-pointer p-5 group rounded-2xl"
+              onclick="location.href='https://your-link-post-4.com'"
+            >
+              <div
+                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
+              ></div>
+              <div
+                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
+              ></div>
+              <div
+                class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4"
+              >
+                <img
+                  src="assets/images/post-4.png"
+                  alt="Post 4 thumbnail"
+                  class="w-20 h-20 rounded-xl object-cover flex-shrink-0"
+                />
+                <div>
+                  <h3 class="flex items-center mb-2">
+                    <a
+                      href="https://your-link-post-4.com"
+                      class="text-base font-bold leading-tight tracking-tight sm:text-lg dark:text-neutral-100"
+                    >
+                      Notes on Balancing School, Research, and Life
+                    </a>
+                  </h3>
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                    Some reflections on productivity, focus, and avoiding burnout.
+                  </p>
+                  <div class="mt-2.5 text-xs font-medium text-neutral-800 dark:text-neutral-300">
+                    Posted on January 29, 2026
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Nút xem tất cả bài viết -->
+            <div class="flex items-center justify-center w-full py-5">
+              <a href="content.html" class="btn btn-secondary">
+                View All My Posts <i class="fas fa-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
     <footer id="footer">
       <div class="container">
-        <a href="mailto:communitypro47@gmail.com">communitypro47@gmail.com</a>
-        <!-- Social links -->
-        <div class="social">
-          <a href="#" target="_blank"
-            ><img src="./assets/icon/facebook-icon.svg" alt="Facebook"
-          /></a>
-          <a href="#" target="_blank"><img src="./assets/icon/zalo-icon.svg" alt="Zalo" /></a>
-          <a href="#" target="_blank"
-            ><img src="./assets/icon/linkedin-icon.svg" alt="Linkedin"
-          /></a>
-          <a href="#" target="_blank"><img src="./assets/icon/github-icon.svg" alt="GitHub" /></a>
-          <a href="#" target="_blank"
-            ><img src="./assets/icon/hashnode-icon.svg" alt="Hashnode"
-          /></a>
+        
+        <div class="left">
+          <a href="mailto:leadungx@gmail.com">leadungx@gmail.com</a>
+          <div class="attribution">
+            <p>&copy; 2026 Communitypro</p>
+          </div>
         </div>
-        <!-- Attribution -->
-        <div class="attribution">
-          <a
-            href="https://github.com/CommunityPro/portfolio-html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src="https://user-images.githubusercontent.com/62628408/157202263-9174da24-b19a-4017-9b7c-a1d26ae8f014.svg"
-              alt="attribution"
-              width="150px"
-            />
+    
+        <div class="social">
+          <a href="https://www.linkedin.com/in/dungx" target="_blank">
+            <img src="./assets/icon/linkedin-icon.svg" alt="Linkedin"/>
+          </a>
+          <a href="https://github.com/dungx-o" target="_blank">
+            <img src="./assets/icon/github-icon.svg" alt="GitHub"/>
+          </a>
+          <a href="https://zalo.me/0917787611" target="_blank">
+            <img src="./assets/icon/zalo-icon.svg" alt="Zalo"/>
           </a>
         </div>
-        <p>Copyright &copy; Communitypro <span id="datee"></span>, All rights reserved</p>
+    
       </div>
     </footer>
+    
+    <!-- Script chính cho navbar, dark mode, v.v... -->
     <script src="js/script.js"></script>
 
+    <!-- Script nhỏ riêng cho highlight menu + nút "Let's checkout my projects" -->
     <script>
+      // Highlight item trong navbar tương ứng với trang hiện tại
       const links = document.querySelectorAll(".nav-link");
       const currentPage = window.location.pathname.split("/").pop();
     
-      links.forEach(link => {
-        if(link.getAttribute("href") === currentPage){
+      links.forEach((link) => {
+        if (link.getAttribute("href") === currentPage) {
           link.classList.add("active");
         }
       });
 
-      // Scroll to projects functionality
-      const scrollToProjects = document.getElementById('scroll-to-projects');
+      // Scroll mượt xuống section projects khi bấm vào nút ở giữa trang
+      // và trừ đi chiều cao navbar để không che mất chữ "Projects"
+      const scrollToProjects = document.getElementById("scroll-to-projects");
       if (scrollToProjects) {
-        scrollToProjects.addEventListener('click', function() {
-          const projectsSection = document.getElementById('projects');
+        scrollToProjects.addEventListener("click", () => {
+          const projectsSection = document.getElementById("projects");
           if (projectsSection) {
-            projectsSection.scrollIntoView({ 
-              behavior: 'smooth', 
-              block: 'start' 
+            const navbar = document.querySelector(".navbar");
+            const navbarHeight = navbar ? navbar.offsetHeight : 80;
+
+            const sectionTop =
+              projectsSection.getBoundingClientRect().top + window.pageYOffset;
+
+            window.scrollTo({
+              top: sectionTop - navbarHeight - 10, // trừ thêm 10px cho thoáng
+              behavior: "smooth",
+            });
+          }
+        });
+      }
+
+      // Scroll mượt xuống section content khi bấm vào "Let's check out my content"
+      const scrollToContent = document.getElementById("scroll-to-content");
+      if (scrollToContent) {
+        scrollToContent.addEventListener("click", () => {
+          const contentSection = document.getElementById("content-preview");
+          if (contentSection) {
+            const navbar = document.querySelector(".navbar");
+            const navbarHeight = navbar ? navbar.offsetHeight : 80;
+
+            const sectionTop =
+              contentSection.getBoundingClientRect().top + window.pageYOffset;
+
+            window.scrollTo({
+              top: sectionTop - navbarHeight - 10,
+              behavior: "smooth",
             });
           }
         });
