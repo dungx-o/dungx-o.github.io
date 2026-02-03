@@ -67,7 +67,7 @@
     <header id="hero">
       <!-- Navbar -->
       <nav class="navbar">
-        <div class="container">
+        <div class="max-w-5xl mx-auto px-5 flex justify-between items-center w-full">
           <!-- Logo (tạm thời trỏ về repo template, nên đổi sang link cá nhân sau) -->
           <h1 id="logo">
             <a href="https://github.com/CommunityPro/portfolio-html"
@@ -101,7 +101,7 @@
 
       <!-- Hero giới thiệu ngắn gọn về bản thân -->
       <section class="header-container">
-        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 w-full max-w-7xl mx-auto">
+        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 w-full max-w-5xl mx-auto">
           <!-- Text content - bên trái (title, mô tả ngắn, CTA) -->
           <div class="flex-1 md:text-left text-center md:max-w-2xl">
             <h1>Hi, I'm Dũng.</h1>
@@ -140,12 +140,15 @@
               <!-- Khối ảnh profile + border bo tròn -->
               <div class="relative z-10 px-6 md:px-10 flex items-center justify-center">
                 <!-- Border nền phía sau ảnh để tạo hiệu ứng khung -->
-                <div class="absolute z-0 
-                            border border-solid 
-                            bg-gradient-to-r from-white via-neutral-50 to-white 
-                            border-neutral-300"
-                     style="border-radius: 50% / 40%; width: 100%; max-width: 23rem; aspect-ratio: 790/1189; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                <div
+                  class="absolute inset-1/2 z-0 
+                        w-full max-w-[23rem] aspect-[790/1189]
+                        -translate-x-1/2 -translate-y-1/2
+                        rounded-[50%/40%]
+                        border border-neutral-400
+                        bg-gradient-to-r from-white via-neutral-50 to-white">
                 </div>
+
                 <img src="assets/images/photo.png"
                      loading="eager"
                      class="profile-image relative z-10 w-full aspect-[790/1189] 
@@ -161,47 +164,21 @@
     </header>
 
     <!-- ==================== DIVIDER SCROLL TO PROJECTS ==================== -->
-    <div class="relative my-32">
-      <!-- Đường kẻ ngang với hiệu ứng gradient + nét đứt giống đoạn mẫu -->
-      <div class="relative w-full pl-5 overflow-x-hidden md:pl-0">
-        <div
-          class="absolute w-full h-px bg-gradient-to-r from-transparent to-white"
-        ></div>
-        <div
-          class="w-full h-px border-t border-dashed border-neutral-300"
-        ></div>
+    <div class="relative my-32 flex justify-center">
+      <div class="relative w-full max-w-5xl px-5">
+        <div class="w-full h-px bg-neutral-300 dark:bg-neutral-700"></div>
       </div>
-
-      <!-- Nút nhỏ giữa trang, khi bấm sẽ scroll xuống section Projects -->
-      <div
-        id="scroll-to-projects"
-        class="absolute flex items-center justify-center w-auto h-auto px-3 py-1.5 uppercase tracking-widest space-x-1 text-[0.6rem] md:-translate-x-1/2 -translate-y-1/2 border rounded-full bg-white text-neutral-500 left-0 md:ml-0 ml-5 md:left-1/2 border-neutral-100 shadow-sm cursor-pointer"
-      >
-        <p class="leading-none">Let's check out my projects</p>
-        <div
-          class="flex items-center justify-center w-5 h-5 translate-x-1 border rounded-full border-neutral-100"
-        >
-          <!-- Icon mũi tên đôi đi xuống (SVG, không phụ thuộc fontawesome) -->
-          <svg
-            class="w-3 h-3"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75"
-            />
+      <div id="scroll-to-projects" class="absolute flex items-center justify-center px-4 py-1.5 uppercase tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-full left-1/2 -translate-x-1/2 shadow-sm cursor-pointer" style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background);">
+        <p class="flex items-center gap-2 leading-none">
+          Let's check out my projects
+          <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" />
           </svg>
-        </div>
+        </p>
       </div>
     </div>
-
     <!-- ==================== PROJECTS SECTION ==================== -->
-    <section id="projects" class="project-container container">
+    <section id="projects" class="project-container container max-w-5xl mx-auto">
       <!-- Tiêu đề + mô tả ngắn cho danh sách project -->
       <div class="content-text">
         <h2>Projects</h2>
@@ -302,58 +279,48 @@
       </article>
       
       <!-- Nút dẫn sang trang liệt kê đầy đủ tất cả project -->
-      <a href="projects.html" class="btn btn-secondary">All my projects <i class="fas fa-arrow-right"></i
+      <a href="projects.html" class="btn btn-secondary">View all my projects <i class="fas fa-arrow-right"></i
         ></a>
     </section>
 
     <!-- ==================== DIVIDER SCROLL TO CONTENT ==================== -->
-    <div class="relative mt-24 mb-32 flex justify-center">
-      <div class="relative w-auto max-w-md px-5">
-        <div
-          class="absolute w-full h-px bg-gradient-to-r from-transparent to-white"
-        ></div>
-        <div class="w-full h-px border-t border-solid border-neutral-300"></div>
+    <div class="relative my-32 flex justify-center">
+      <div class="relative w-full max-w-5xl px-5">
+        <div class="w-full h-px bg-neutral-300 dark:bg-neutral-700"></div>
       </div>
-      <div
-        id="scroll-to-content"
-        class="absolute flex items-center justify-center px-3 py-1.5 uppercase tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-lg left-1/2 -translate-x-1/2"
-        style="
-          background-color: var(--bg-primary);
-          color: var(--text-color);
-          border-color: var(--card-background);
-          cursor: pointer;
-        "
-      >
-        <p class="flex items-center gap-2">
+      <div id="scroll-to-content" class="absolute flex items-center justify-center px-4 py-1.5 uppercase tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-full left-1/2 -translate-x-1/2 shadow-sm cursor-pointer" style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background);">
+        <p class="flex items-center gap-2 leading-none">
           Let's check out my content
-          <i class="fas fa-arrow-down" style="font-size: 0.5rem;"></i>
+          <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" />
+          </svg>
         </p>
       </div>
     </div>
 
     <!-- ==================== MY CONTENT SECTION ==================== -->
-    <section id="content-preview" class="project-container container">
-      <div class="content-text">
-        <h2>Content</h2>
-        <p>
+    <section id="content-preview" class="project-container max-w-5xl mx-auto px-4">
+      <div class="content-text mb-10"> 
+        <h2 class="text-left">Content</h2>
+        <p class="text-left">
           I use this space to share what I’m learning and discovering along my journey. Here are some of my recent posts.
         </p>
       </div>
 
-      <div class="w-full max-w-4xl mx-auto my-7 xl:px-0">
-        <div class="flex flex-col items-start justify-start md:flex-row md:space-x-7">
+      <div class="w-full max-w-5xl mx-auto my-7 px-4 xl:px-0">
+        <div class="flex flex-col items-center">
           <!-- LIST BÀI VIẾT BÊN TRÁI -->
-          <div class="w-full md:w-2/3 space-y-7">
+          <div class="w-full space-y-7">
             <!-- Post 1 -->
             <div
-              class="relative border border-transparent border-dashed cursor-pointer p-5 group rounded-2xl"
+              class="relative border border-transparent border cursor-pointer p-5 group rounded-2xl"
               onclick="location.href='https://your-link-post-1.com'"
             >
               <div
-                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border-dashed dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
+                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
               ></div>
               <div
-                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border-dashed rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
+                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
               ></div>
               <div
                 class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4"
@@ -386,14 +353,14 @@
 
             <!-- Post 2 -->
             <div
-              class="relative border border-transparent border-dashed cursor-pointer p-5 group rounded-2xl"
+              class="relative border border-transparent border cursor-pointer p-5 group rounded-2xl"
               onclick="location.href='https://your-link-post-2.com'"
             >
               <div
-                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border-dashed dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
+                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
               ></div>
               <div
-                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border-dashed rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
+                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
               ></div>
               <div
                 class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4"
@@ -424,14 +391,14 @@
 
             <!-- Post 3 -->
             <div
-              class="relative border border-transparent border-dashed cursor-pointer p-5 group rounded-2xl"
+              class="relative border border-transparent border cursor-pointer p-5 group rounded-2xl"
               onclick="location.href='https://your-link-post-3.com'"
             >
               <div
-                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border-dashed dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
+                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
               ></div>
               <div
-                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border-dashed rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
+                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
               ></div>
               <div
                 class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4"
@@ -462,14 +429,14 @@
 
             <!-- Post 4 -->
             <div
-              class="relative border border-transparent border-dashed cursor-pointer p-5 group rounded-2xl"
+              class="relative border border-transparent border cursor-pointer p-5 group rounded-2xl"
               onclick="location.href='https://your-link-post-4.com'"
             >
               <div
-                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border-dashed dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
+                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
               ></div>
               <div
-                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border-dashed rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
+                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
               ></div>
               <div
                 class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4"
@@ -500,11 +467,8 @@
 
             <!-- Nút xem tất cả bài viết -->
             <div class="flex items-center justify-center w-full py-5">
-              <a
-                href="content.html"
-                class="inline-flex w-auto px-4 py-2 mt-5 text-xs font-semibold duration-300 ease-out border rounded-full bg-neutral-900 dark:bg-white dark:text-neutral-900 text-neutral-100 hover:border-neutral-700 border-neutral-900 dark:hover:border-neutral-300 hover:bg-white dark:hover:bg-black dark:hover:text-white hover:text-neutral-900"
-              >
-                View All My Writing
+              <a href="content.html" class="btn btn-secondary">
+                View All My Posts <i class="fas fa-arrow-right ml-2"></i>
               </a>
             </div>
           </div>
