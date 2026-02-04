@@ -242,49 +242,78 @@ body {
 
 /* ==================== FOOTER ==================== */
 #footer {
-  background: #111111;
-  padding: 40px 60px;
+  background-color: #ffffff; /* Mặc định trắng */
+  color: #1a1a1a;            /* Chữ đen trên nền trắng */
+  padding: 15px 0;           /* Giảm chiều dọc (40px -> 15px) */
+  border: none;              /* Bỏ đường kẻ phân chia */
+  transition: all 0.3s ease;
 }
 
+/* Khi ở Dark Mode */
+.dark #footer {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+}
+
+/* Container bên trong */
 #footer .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #ffffff;
+  
+  /* ĐẢM BẢO CHIỀU RỘNG */
+  width: 100%;       /* Bắt buộc container chiếm hết chiều ngang footer */
+  max-width: 1024px; 
+  margin: 0 auto;
+  
+  /* Khoảng cách an toàn để không chạm mép màn hình */
+  padding: 0 20px;   
+  
+  /* Đảm bảo không bị bọc xuống dòng nếu không cần thiết */
+  flex-wrap: nowrap; 
 }
 
-/* Bên trái */
-#footer .left {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+#footer {
+  /* Tạo đường kẻ ngang phía trên */
+  border-top: 1px solid #dddddd; 
+  
+  /* Thêm khoảng cách giữa đường kẻ và nội dung bên trong footer */
+  padding-top: 20px;
+  
+  /* (Tùy chọn) Thêm khoảng cách giữa đường kẻ và nội dung phía trên footer */
+  margin-top: 40px; 
 }
 
+/* Sửa lỗi chữ bị trắng trên nền trắng */
 #footer a {
-  font-size: 0.9rem;
-  color: #ffffff;
+  font-size: 0.85rem;
+  color: inherit; /* Tự động lấy màu từ thẻ cha #footer */
   text-decoration: none;
 }
 
-#footer a:hover {
-  opacity: 0.6;
-}
-
 #footer p {
-  font-size: 0.8rem;
-  margin: 0;
+  font-size: 0.75rem;
+  color: #666; /* Màu xám nhẹ cho dòng bản quyền */
 }
 
-/* Social bên phải */
+.dark #footer p {
+  color: #aaa; /* Xám sáng hơn ở dark mode */
+}
+
+/* Đảo màu icon khi ở dark mode */
+.dark #footer .social img {
+  filter: invert(1);
+}
+
+
 #footer .social {
   display: flex;
-  gap: 18px;
+  gap: 15px;
 }
 
 #footer .social img {
-  width: 22px;
-  height: 22px;
-  cursor: pointer;
+  width: 20px;
+  height: 20px;
 }
 
 
