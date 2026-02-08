@@ -24,42 +24,49 @@ navLink.forEach((n) =>
 
 // ==================== DARK MODE TOGGLE & LOGO ====================
 
-// Lắng nghe sự kiện toggle dark/light mode
-const toggleSwitch = document.querySelector(
-  '.theme-switch input[type="checkbox"]'
-);
+// 1. CHỌN ELEMENT CHÍNH XÁC (Dùng ID #switch cho chắc chắn)
+const toggleSwitch = document.querySelector('#switch');
+const logoImg = document.querySelector('#logo-img'); // Chọn thêm logo để đổi màu
 
-// Lưu theme người dùng chọn vào localStorage
+// 2. HÀM XỬ LÝ CHÍNH
 function switchTheme(e) {
-  const isDark = e.target.checked;
-  const theme = isDark ? "dark" : "light";
+    const isDark = e.target.checked; 
 
-  document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem("theme", theme);
-  updateLogo(theme);
+    if (isDark) {
+        // Bật Dark Mode
+        document.documentElement.classList.add('dark'); // Cho Tailwind
+        document.documentElement.setAttribute('data-theme', 'dark'); // Cho CSS thường
+        localStorage.setItem('theme', 'dark');
+        // Đổi logo (nếu cần)
+        if(logoImg) logoImg.style.filter = "invert(1)"; 
+    } else {
+        // Tắt Dark Mode
+        document.documentElement.classList.remove('dark');
+        document.documentElement.removeAttribute('data-theme'); // Hoặc set là 'light'
+        document.documentElement.setAttribute('data-theme', 'light');
+        localStorage.setItem('theme', 'light');
+        // Trả lại logo
+        if(logoImg) logoImg.style.filter = "invert(0)";
+    }
 }
 
+// 3. QUAN TRỌNG NHẤT: GẮN SỰ KIỆN (Dòng này bị thiếu trước đó)
 if (toggleSwitch) {
-  toggleSwitch.addEventListener("change", switchTheme, false);
+    toggleSwitch.addEventListener('change', switchTheme, false);
 }
 
-// Áp dụng lại theme đã lưu khi load trang
-const currentTheme = localStorage.getItem("theme")
-  ? localStorage.getItem("theme")
-  : null;
-
+// 4. KIỂM TRA TRẠNG THÁI KHI LOAD TRANG
+const currentTheme = localStorage.getItem('theme');
 if (currentTheme) {
-  document.documentElement.setAttribute("data-theme", currentTheme);
+    document.documentElement.setAttribute('data-theme', currentTheme);
 
-  if (toggleSwitch && currentTheme === "dark") {
-    toggleSwitch.checked = true;
-  }
-
-  // Cập nhật logo theo theme đang dùng
-  updateLogo(currentTheme);
-} else {
-  // Mặc định light mode logo
-  updateLogo("light");
+    if (currentTheme === 'dark') {
+        if (toggleSwitch) {
+            toggleSwitch.checked = true;
+        }
+        document.documentElement.classList.add('dark');
+        if(logoImg) logoImg.style.filter = "invert(1)";
+    }
 }
 
 // ==================== FOOTER - NĂM HIỆN TẠI ====================

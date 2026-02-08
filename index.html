@@ -29,8 +29,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
-            // Dòng này giúp Tailwind nhận diện Dark Mode qua thẻ data-theme="dark" trong CSS của bạn
-            darkMode: ['class', '[data-theme="dark"]'], 
+            darkMode: 'class', 
             theme: {
                 extend: {
                     colors: {
@@ -41,68 +40,108 @@
         }
     </script>
   </head>
-  <body>
-    <header id="hero">
-      <nav class="navbar sticky top-0 z-50 w-full bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-neutral-200 dark:border-gray-800 transition-colors duration-300">
-        <div class="max-w-5xl mx-auto flex justify-between items-center w-full h-16 px-4">
-            <h1 id="logo">
-                <a href="index.html"><img id="logo-img" src="./assets/favicon/logo.svg" alt="Logo của tôi" /></a>
-            </h1>
-            <ul class="nav-menu">
-                <li><a class="nav-link" href="index.html">Home</a></li>
-                <li><a class="nav-link" href="about.html">About</a></li>
-                <li><a class="nav-link" href="projects.html">Projects</a></li>
-                <li><a class="nav-link" href="content.html">Content</a></li>
-                <li class="theme-switch">
-                    <input type="checkbox" id="switch" />
-                    <label for="switch" class="toggle-icons">
-                        <img class="sun" src="assets/icon/sun.svg" alt="sun" />
-                        <img class="moon" src="assets/icon/moon.svg" alt="moon" />
-                    </label>
-                </li>
-            </ul>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-      </nav>
 
-      <section class="header-container">
-        <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 w-full max-w-5xl mx-auto">
-          <div class="flex-1 md:text-left text-center md:max-w-2xl">
-            <h1>Hi, I'm Dũng.</h1>
-            <div class="content-text">
-              <h2>Aspiring ML/AI Engineer</h2>
-              <div class="flex justify-center mt-6 md:hidden">
-                <img src="assets/images/photo.png" loading="eager" class="profile-image w-full max-w-[18rem] aspect-[790/1189]" style="border-radius: 50% / 40%;" alt="">
-              </div>
-              <p>Computer Science Student at Hanoi University of Science and Technology (HUST)</p>
-              <p><strong>Hard skills:</strong> Python, C/C++, HTML, Bilingual (English, Vietnamese)</p>
-              <p><strong>Key highlights:</strong> Third Prize in Vietnam Mathematical Olympiad (VMO), Silver Medal in National Student Mathematics Olympiad</p>
-            </div>
-            <a href="about.html" class="btn btn-secondary">
-              More about me <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
+  <body class="bg-white text-neutral-900 dark:bg-black dark:text-white transition-colors duration-300 ease-in-out">
 
-          <div class="relative justify-end hidden md:flex w-full md:w-1/2 md:pl-10">
-            <div class="relative z-10 w-full">
-              <div class="relative z-10 px-6 md:px-10 flex items-center justify-center">
-                <div class="absolute inset-1/2 z-0 w-full max-w-[23rem] aspect-[790/1189] -translate-x-1/2 -translate-y-1/2 rounded-[50%/40%] border border-neutral-400 bg-gradient-to-r from-white via-neutral-50 to-white"></div>
-                <img src="assets/images/photo.png" loading="eager" class="profile-image relative z-10 w-full aspect-[790/1189] max-w-[21rem] mx-auto" style="border-radius: 50% / 40%;" alt="">
-              </div>
-            </div>
-          </div>
+  <nav class="navbar sticky top-0 z-50 w-full bg-white/90 dark:bg-black backdrop-blur-sm dark:backdrop-blur-none border-b border-neutral-200 dark:border-gray-800 transition-colors duration-300 ease-in-out">
+    <div class="w-full max-w-[1121px] mx-auto flex justify-between items-center h-16 px-4 md:px-8">
+        <h1 id="logo">
+            <a href="index.html"><img id="logo-img" src="./assets/favicon/logo.svg" alt="Logo của tôi" class="transition-all duration-300 ease-in-out"/></a>
+        </h1>
+        <ul class="nav-menu">
+            <li><a class="nav-link dark:text-gray-300 hover:dark:text-white transition-colors duration-300 ease-in-out" href="index.html">Home</a></li>
+            <li><a class="nav-link dark:text-gray-300 hover:dark:text-white transition-colors duration-300 ease-in-out" href="about.html">About</a></li>
+            <li><a class="nav-link dark:text-gray-300 hover:dark:text-white transition-colors duration-300 ease-in-out" href="projects.html">Projects</a></li>
+            <li><a class="nav-link dark:text-gray-300 hover:dark:text-white transition-colors duration-300 ease-in-out" href="content.html">Content</a></li>
+            <li class="theme-switch">
+              <label for="switch" class="nav-link theme-toggle-btn" style="padding-bottom: 5px;">
+                  <input type="checkbox" id="switch" />
+                  
+                  <span class="icon-wrapper">
+                      <svg class="sun-icon transition-colors duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                      
+                      <svg class="moon-icon transition-colors duration-300 ease-in-out" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                  </span>
+              </label>
+            </li>
+        </ul>
+        <div class="hamburger dark:text-white transition-colors duration-300 ease-in-out">
+            <span class="bar dark:bg-white transition-colors duration-300 ease-in-out"></span>
+            <span class="bar dark:bg-white transition-colors duration-300 ease-in-out"></span>
+            <span class="bar dark:bg-white transition-colors duration-300 ease-in-out"></span>
         </div>
-      </section>
-    </header>
+    </div>
+  </nav>
+
+  <header id="hero" class="relative w-full min-h-[calc(100vh-64px)] flex items-center justify-center transition-colors duration-300 ease-in-out">
+    <div class="max-w-[var(--width-medium)] mx-auto w-full px-4 md:px-8 py-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-12 w-full">
+          
+            <div class="flex-1 text-center md:text-left flex flex-col items-center md:items-start z-10">
+                <h1 class="text-4xl md:text-6xl font-bold dark:text-white transition-colors duration-300 ease-in-out">Hi, I'm Dũng.</h1>
+                
+                <div class="content-text mt-4 w-full">
+                  <h2 class="text-xl md:text-2xl font-bold 
+                    !text-blue-700 
+                    dark:!text-blue-400 
+                    transition-colors duration-300 ease-in-out">
+                    Aspiring ML/AI Engineer
+                  </h2>
+
+                    <div class="block md:hidden mt-6 mb-8">
+                        <img 
+                            src="assets/images/photo.png"
+                            class="w-full max-w-[18rem] mx-auto aspect-[790/1189] object-cover shadow-lg border-2 border-transparent dark:border-white/20 transition-all duration-300 ease-in-out"
+                            style="border-radius:50% / 40%;"
+                        >
+                    </div>
+
+                    <div class="space-y-3 mt-4 text-gray-700 dark:text-gray-300 transition-colors duration-300 ease-in-out text-base md:text-lg">
+                        <p>Computer Science Student at Hanoi University of Science and Technology (HUST)</p>
+                        <p><strong class="text-black dark:text-white">Hard skills:</strong> Python, C/C++, HTML, Bilingual (English, Vietnamese)</p>
+                        <p><strong class="text-black dark:text-white">Key highlights:</strong> Third Prize in VMO, Silver Medal in National Student Mathematics Olympiad</p>
+                    </div>
+                </div>
+            
+                <a href="about.html" class="group inline-flex items-center gap-2 px-4 py-1.5 text-sm font-medium 
+                  text-neutral-600 dark:text-neutral-300 
+                  border border-neutral-400 dark:border-neutral-600 
+                  rounded-full 
+                  bg-transparent 
+                  hover:text-black dark:hover:text-white 
+                  hover:border-black dark:hover:border-white
+                  transition-all duration-300 ease-in-out mt-8">
+                  More about me 
+                  <i class="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+                </a>
+            </div>
+      
+            <div class="flex-1 hidden md:flex justify-end items-center relative">
+                <div class="relative w-full max-w-[21rem]">
+                    
+                    <div class="absolute inset-0 z-0 scale-110 rounded-[50%/40%] border border-neutral-400 
+                                bg-gradient-to-r from-white via-neutral-50 to-white shadow-sm
+                                dark:bg-gradient-to-br dark:from-white dark:via-gray-100 dark:to-white dark:border-transparent
+                                transition-all duration-300 ease-in-out"></div>
+              
+                    <img  
+                        src="assets/images/photo.png" 
+                        loading="eager" 
+                        class="profile-image relative z-10 w-full aspect-[790/1189] object-cover shadow-2xl dark:brightness-100 transition-all duration-300 ease-in-out" 
+                        style="border-radius: 50% / 40%;" 
+                        alt="Dũng">
+                </div>
+            </div>
+    
+        </div>
+    </div>
+  </header>
+
     <div class="relative my-32 flex justify-center">
       <div class="relative w-full max-w-5xl">
-        <div class="w-full h-px bg-neutral-200 dark:bg-neutral-800"></div>
+        <div class="w-full h-px bg-neutral-200 dark:bg-neutral-800 transition-colors duration-300 ease-in-out"></div>
       </div>
-      <div id="scroll-to-projects" class="absolute flex items-center justify-center px-2.5 py-1 tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-full left-1/2 -translate-x-1/2 shadow-sm cursor-pointer" style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background);">
+      <div id="scroll-to-projects" class="absolute flex items-center justify-center px-2.5 py-1 tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-full left-1/2 -translate-x-1/2 shadow-sm cursor-pointer transition-colors duration-300 ease-in-out" style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background);">
         <p class="flex items-center gap-1 leading-none opacity-70">
           Let's check out my projects
           <svg class="w-2.5 h-2.5 animate-bounce-slow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
@@ -132,78 +171,91 @@
           </div>
         </div>
         <div class="card">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Project Two</h3>
-              <p>React, Redux, SASS</p>
-            </div>
-            <div class="project-link">
-              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Project Three</h3>
-              <p>React, Redux, SASS</p>
-            </div>
-            <div class="project-link">
-              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+            <div class="project-info">
+              <div class="project-bio">
+                <h3>Project Two</h3>
+                <p>React, Redux, SASS</p>
+              </div>
+              <div class="project-link">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Project Four</h3>
-              <p>React, Redux, SASS</p>
-            </div>
-            <div class="project-link">
-              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Project Five</h3>
-              <p>React, Redux, SASS</p>
-            </div>
-            <div class="project-link">
-              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+          <div class="card">
+            <div class="project-info">
+              <div class="project-bio">
+                <h3>Project Three</h3>
+                <p>React, Redux, SASS</p>
+              </div>
+              <div class="project-link">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="card">
-          <div class="project-info">
-            <div class="project-bio">
-              <h3>Project Six</h3>
-              <p>React, Redux, SASS</p>
-            </div>
-            <div class="project-link">
-              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-              <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+          <div class="card">
+            <div class="project-info">
+              <div class="project-bio">
+                <h3>Project Four</h3>
+                <p>React, Redux, SASS</p>
+              </div>
+              <div class="project-link">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+              </div>
             </div>
           </div>
-        </div>
+          <div class="card">
+            <div class="project-info">
+              <div class="project-bio">
+                <h3>Project Five</h3>
+                <p>React, Redux, SASS</p>
+              </div>
+              <div class="project-link">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="project-info">
+              <div class="project-bio">
+                <h3>Project Six</h3>
+                <p>React, Redux, SASS</p>
+              </div>
+              <div class="project-link">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+              </div>
+            </div>
+          </div>
       </article>
       
-      <a href="projects.html" class="btn btn-secondary">View all my projects <i class="fas fa-arrow-right"></i></a>
+      <div class="flex justify-center mt-10">
+        <a href="projects.html" class="group inline-flex items-center gap-2 px-4 py-1.5 text-sm font-medium 
+            text-neutral-600 dark:text-neutral-300 
+            border border-neutral-400 dark:border-neutral-600 
+            rounded-full 
+            bg-transparent 
+            hover:text-black dark:hover:text-white 
+            hover:border-black dark:hover:border-white
+            transition-all duration-300 ease-in-out">
+            View all projects 
+            <i class="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+        </a>
+      </div>
     </section>
 
     <div class="relative my-32 flex justify-center">
       <div class="relative w-full max-w-5xl">
-        <div class="w-full h-px bg-neutral-300 dark:bg-neutral-700"></div>
+        <div class="w-full h-px bg-neutral-200 dark:bg-neutral-800 transition-colors duration-300 ease-in-out"></div>
       </div>
-      <div id="scroll-to-content" class="absolute flex items-center justify-center px-4 py-1.5 uppercase tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-full left-1/2 -translate-x-1/2 shadow-sm cursor-pointer" style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background);">
-        <p class="flex items-center gap-2 leading-none">
+      
+      <div id="scroll-to-content" class="absolute flex items-center justify-center px-2.5 py-1 tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-full left-1/2 -translate-x-1/2 shadow-sm cursor-pointer transition-colors duration-300 ease-in-out" style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background);">
+        <p class="flex items-center gap-1 leading-none opacity-70">
           Let's check out my content
-          <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <svg class="w-2.5 h-2.5 animate-bounce-slow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" />
           </svg>
         </p>
@@ -211,7 +263,7 @@
     </div>
 
     <section id="content-preview" class="project-container max-w-5xl mx-auto">
-      <div class="content-text mb-10"> 
+        <div class="content-text mb-10"> 
         <h2 class="text-left">Content</h2>
         <p class="text-left">
           I use this space to share what I’m learning and discovering along my journey. Here are some of my recent posts.
@@ -242,60 +294,72 @@
               </div>
             </div>
 
-            <div class="relative border border-transparent cursor-pointer p-5 group rounded-2xl" onclick="location.href='https://your-link-post-1.com'">
+            <div class="relative border border-transparent cursor-pointer p-5 group rounded-2xl" onclick="location.href='LINK-BAI-VIET-2.html'">
               <div class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white dark:bg-white border-2 border-neutral-700 dark:border-neutral-700 rounded-2xl group-hover:-translate-x-1 group-hover:-translate-y-1"></div>
               <div class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border-neutral-400 dark:border-neutral-400 rounded-2xl group-hover:translate-x-1 group-hover:translate-y-1"></div>
+              
               <div class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4">
-                <img src="assets/images/post-1.png" alt="Post 1 thumbnail" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-neutral-200" />
-                <div>
+              <img src="assets/images/post-2.png" alt="Thumbnail bài 2" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-neutral-200" />
+              
+              <div>
                   <h3 class="flex items-center mb-2">
-                    <a href="https://your-link-post-1.com" class="text-base font-bold leading-tight tracking-tight sm:text-lg text-neutral-900 dark:text-neutral-900">
-                      How I Got Into Machine Learning
-                    </a>
+                  <a href="LINK-BAI-VIET-2.html" class="text-base font-bold leading-tight tracking-tight sm:text-lg text-neutral-900 dark:text-neutral-900">
+                      Tiêu đề bài viết số 2 của bạn nằm ở đây
+                  </a>
                   </h3>
                   <p class="text-sm text-neutral-600 dark:text-neutral-600 line-clamp-2">
-                    A short story about my journey from math competitions to ML/AI.
+                      Mô tả ngắn gọn về nội dung bài viết này (khoảng 1-2 câu để người đọc biết nội dung là gì).
                   </p>
                   <div class="mt-2.5 text-xs font-medium text-neutral-500 dark:text-neutral-500">
-                    Posted on February 1, 2026
+                  Posted on March 15, 2026
                   </div>
-                </div>
               </div>
-            </div>
-
-            <div class="relative border border-transparent cursor-pointer p-5 group rounded-2xl" onclick="location.href='https://your-link-post-1.com'">
+              </div>
+          </div>
+          
+          <div class="relative border border-transparent cursor-pointer p-5 group rounded-2xl" onclick="location.href='LINK-BAI-VIET-3.html'">
               <div class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white dark:bg-white border-2 border-neutral-700 dark:border-neutral-700 rounded-2xl group-hover:-translate-x-1 group-hover:-translate-y-1"></div>
               <div class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border-neutral-400 dark:border-neutral-400 rounded-2xl group-hover:translate-x-1 group-hover:translate-y-1"></div>
+              
               <div class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4">
-                <img src="assets/images/post-1.png" alt="Post 1 thumbnail" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-neutral-200" />
-                <div>
+              <img src="assets/images/post-3.png" alt="Thumbnail bài 3" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-neutral-200" />
+              
+              <div>
                   <h3 class="flex items-center mb-2">
-                    <a href="https://your-link-post-1.com" class="text-base font-bold leading-tight tracking-tight sm:text-lg text-neutral-900 dark:text-neutral-900">
-                      How I Got Into Machine Learning
-                    </a>
+                  <a href="LINK-BAI-VIET-3.html" class="text-base font-bold leading-tight tracking-tight sm:text-lg text-neutral-900 dark:text-neutral-900">
+                      Tiêu đề bài viết số 3: Hướng dẫn học Python
+                  </a>
                   </h3>
                   <p class="text-sm text-neutral-600 dark:text-neutral-600 line-clamp-2">
-                    A short story about my journey from math competitions to ML/AI.
+                      Chia sẻ kinh nghiệm tự học lập trình Python từ con số 0 cho người mới bắt đầu.
                   </p>
                   <div class="mt-2.5 text-xs font-medium text-neutral-500 dark:text-neutral-500">
-                    Posted on February 1, 2026
+                  Posted on April 20, 2026
                   </div>
-                </div>
               </div>
-            </div>
-
-            <div class="flex items-center justify-center w-full py-5">
-              <a href="content.html" class="btn btn-secondary">
-                View All My Posts <i class="fas fa-arrow-right ml-2"></i>
-              </a>
-            </div>
+              </div>
+          </div>
+            
+          <div class="flex items-center justify-center w-full py-5">
+            <a href="content.html" class="group inline-flex items-center gap-2 px-4 py-1.5 text-sm font-medium 
+                text-neutral-600 dark:text-neutral-300 
+                border border-neutral-400 dark:border-neutral-600 
+                rounded-full 
+                bg-transparent 
+                hover:text-black dark:hover:text-white 
+                hover:border-black dark:hover:border-white
+                transition-all duration-300 ease-in-out">
+                Read all posts 
+                <i class="fas fa-arrow-right text-xs transition-transform duration-300 group-hover:translate-x-1"></i>
+            </a>
+          </div>
           </div>
         </div>
       </div>
     </section>
 
-    <footer id="footer">
-      <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center py-8">
+    <footer id="footer" class="transition-colors duration-300 ease-in-out">
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center py-4">
         <div class="left text-center md:text-left mb-4 md:mb-0">
           <a href="mailto:leadungx@gmail.com" class="block mb-2">leadungx@gmail.com</a>
           <div class="attribution">
@@ -303,9 +367,9 @@
           </div>
         </div>
         <div class="social flex gap-4">
-          <a href="https://www.linkedin.com/in/dungx" target="_blank"><img src="./assets/icon/linkedin-logo.svg" alt="Linkedin" class="w-6 h-6"/></a>
-          <a href="https://github.com/dungx-o" target="_blank"><img src="./assets/icon/github-logo.svg" alt="GitHub" class="w-6 h-6"/></a>
-          <a href="https://zalo.me/0917787611" target="_blank"><img src="./assets/icon/zalo-logo.svg" alt="Zalo" class="w-6 h-6"/></a>
+          <a href="https://www.linkedin.com/in/dungx" target="_blank"><img src="./assets/icon/linkedin-logo.svg" alt="Linkedin" class="w-6 h-6 transition-all duration-300 ease-in-out"/></a>
+          <a href="https://github.com/dungx-o" target="_blank"><img src="./assets/icon/github-logo.svg" alt="GitHub" class="w-6 h-6 transition-all duration-300 ease-in-out"/></a>
+          <a href="https://zalo.me/0917787611" target="_blank"><img src="./assets/icon/zalo-logo.svg" alt="Zalo" class="w-6 h-6 transition-all duration-300 ease-in-out"/></a>
         </div>
       </div>
     </footer>
@@ -368,8 +432,6 @@
           }
         });
       }
-
-
     </script>
   </body>
 </html>

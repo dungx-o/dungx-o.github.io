@@ -1,12 +1,8 @@
-/* Styling chính cho layout: navbar, hero, projects, footer, responsive...
-  - Thiết lập font, màu, reset CSS
-  - Layout grid/flex cho project
-  - Hiệu ứng hover, animation nhỏ
-*/
+/* Styling chính cho layout: navbar, hero, projects, footer, responsive... */
 
 @import url(https://fonts.googleapis.com/css?family=Raleway:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 
-/* ==================== CSS VARIABLES (LIGHT MODE DEFAULT) ==================== */
+/* ==================== CSS VARIABLES ==================== */
 :root {
   /* Colors */
   --primary-color: #ffcd42;
@@ -21,9 +17,9 @@
   
   --card-background: #f4f4f4;
 
-  /* --- CÁC BIẾN MỚI SỬA --- */
-  --header-border: #e0e0e0; /* Viền header đậm hơn ở chế độ sáng */
-  --transition-speed: 0.2s; /* Tốc độ chuyển đổi nhanh và đồng bộ */
+  /* --- CÁC BIẾN MỚI --- */
+  --header-border: #e0e0e0;
+  --transition-speed: 0.3s; /* Biến này vẫn giữ để dùng cho animation khác nếu cần */
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 
   /* Font Weight & Size */
@@ -35,18 +31,14 @@
   --width-large: 1300px;
 }
 
-/* ==================== DARK MODE THEME OVERRIDES ==================== */
+/* ==================== DARK MODE OVERRIDES ==================== */
 [data-theme="dark"] {
-  /* Chế độ Pitch Black (Đen tuyền) */
   --bg-primary: #000000;
   --bg-secondary: #ffffff; 
-  
   --text-color: #ffffff;
   --text-color-two: #000000;
-  
-  --card-background: #333333; /* Màu nền cho card */
-  --header-border: #333333;   /* Viền header xám tối trên nền đen */
-  
+  --card-background: #333333;
+  --header-border: #333333;
   --shadow: none; 
 }
 
@@ -69,10 +61,9 @@ ul {
 a {
   text-decoration: none;
   color: var(--text-color);
-  transition: color var(--transition-speed) ease;
+  /* ĐÃ XÓA TRANSITION Ở ĐÂY ĐỂ TRÁNH XUNG ĐỘT */
 }
 
-/* Hiệu ứng hover chung cho link */
 a:hover {
   opacity: 0.8;
 }
@@ -82,7 +73,7 @@ body {
   color: var(--text-color);
   font-family: "Raleway", sans-serif;
   line-height: 1.5;
-  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+  /* ĐÃ XÓA TRANSITION Ở ĐÂY ĐỂ TAILWIND LO */
 }
 
 /* ==================== NAVBAR ==================== */
@@ -92,15 +83,9 @@ body {
   left: 0;
   right: 0;
   z-index: 20;
-  
   background: var(--bg-primary);
-  
-  /* Sử dụng biến màu viền riêng để chỉnh độ đậm nhạt tùy ý */
   border-bottom: 1px solid var(--header-border);
-  
-  /* Đồng bộ tốc độ transition */
-  transition: background-color var(--transition-speed) ease, 
-              border-color var(--transition-speed) ease;
+  /* ĐÃ XÓA TRANSITION Ở ĐÂY */
 }
 
 .navbar .container {
@@ -116,7 +101,6 @@ body {
   display: flex;
   align-items: center;
   background: transparent;
-  transition: background-color var(--transition-speed) ease;
 }
 
 .navbar .nav-link {
@@ -124,7 +108,7 @@ body {
   font-size: 0.8rem;
   font-weight: var(--weight-semibold);
   cursor: pointer;
-  color: var(--text-color); /* Đảm bảo chữ luôn đúng màu */
+  color: var(--text-color);
 }
 
 .navbar .nav-menu .theme-switch {
@@ -133,15 +117,13 @@ body {
   align-items: center;
 }
 
-/* --- LOGO XỬ LÝ ĐỒNG BỘ MÀU --- */
+/* LOGO */
 .navbar #logo img {
   display: block;
   width: 100px;
-  /* Quan trọng: dòng này giúp logo đổi màu mượt */
-  transition: filter var(--transition-speed) ease;
+  /* ĐÃ XÓA TRANSITION */
 }
 
-/* Khi Dark Mode kích hoạt -> Đảo màu logo */
 [data-theme="dark"] .navbar #logo img {
   filter: invert(1);
 }
@@ -155,7 +137,7 @@ body {
   font-size: 0.9rem;
 }
 
-/* Hamburger cho navbar trên mobile */
+/* Hamburger */
 .hamburger {
   margin-bottom: 0.1rem;
   display: none;
@@ -166,9 +148,9 @@ body {
   width: 23px;
   height: 3px;
   margin: 4px auto;
-  transition: all 0.3s ease-in-out;
   border-radius: 30px;
-  background-color: var(--text-color); /* Dùng text-color để tự đổi trắng/đen */
+  background-color: var(--text-color);
+  /* ĐÃ XÓA TRANSITION */
 }
 
 /* ==================== HERO SECTION ==================== */
@@ -178,7 +160,6 @@ body {
   height: 100%;
 }
 
-/* Ảnh profile có animation "bounce" nhẹ */
 .profile-image {
   width: 100%;
   height: auto;
@@ -186,21 +167,14 @@ body {
   animation: bounce 1s infinite alternate;
 }
 
-/* Animation cho ảnh profile */
 @keyframes bounce {
   from { transform: translateY(0px); }
   to { transform: translateY(-4px); }
 }
 
-/* Animation cho icon mũi tên */
 @keyframes arrowBounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(3px); }
-}
-
-/* Hiệu ứng hover nhẹ cho nút scroll xuống projects */
-#scroll-to-projects {
-  transition: opacity 0.3s ease;
 }
 
 #scroll-to-projects:hover {
@@ -243,7 +217,7 @@ body {
   justify-content: space-between;
   opacity: 0;
   position: relative;
-  transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out; /* Cái này là hover effect nên giữ lại */
 }
 
 .project-bio {
@@ -259,23 +233,19 @@ body {
 #footer {
   background-color: #ffffff;
   color: #1a1a1a;
-  padding: 15px 0;
+  padding: 10px 0;
   border: none;
-  
-  /* Thêm border-top và padding */
   border-top: 1px solid #dddddd; 
-  padding-top: 20px;
+  padding-top: 10px;
   margin-top: 40px; 
-
-  transition: all var(--transition-speed) ease;
+  /* ĐÃ XÓA TRANSITION */
 }
 
-/* Khi ở Dark Mode */
 .dark #footer,
 [data-theme="dark"] #footer {
   background-color: #000000 !important;
   color: #ffffff !important;
-  border-top: 1px solid #333333; /* Đổi màu kẻ footer tối hơn */
+  border-top: 1px solid #333333;
 }
 
 #footer .container {
@@ -305,7 +275,6 @@ body {
   color: #aaa;
 }
 
-/* Đảo màu icon khi ở dark mode */
 .dark #footer .social img,
 [data-theme="dark"] #footer .social img {
   filter: invert(1);
@@ -321,8 +290,7 @@ body {
   height: 20px;
 }
 
-
-/* ==================== RESPONSIVE BREAKPOINTS ==================== */
+/* ==================== RESPONSIVE ==================== */
 @media (max-width: 1000px) {
   .project {
     display: grid;
@@ -337,13 +305,11 @@ body {
     top: 4.5rem;
     flex-direction: column;
     width: calc(80% - 10px);
-    transition: 0.3s;
+    transition: 0.3s ease-in-out; /* Mobile menu transition */
     box-shadow: var(--shadow);
     padding: 2rem;
     border-radius: 5px;
     align-items: flex-start;
-    
-    /* Đảm bảo menu mobile cũng đen khi dark mode */
     background: var(--bg-primary); 
     border: 1px solid var(--header-border);
   }
@@ -408,7 +374,7 @@ body {
   }
 }
 
-/* ==================== NAVBAR LINKS (FINAL VERSION) ==================== */
+/* ==================== NAVBAR LINKS ==================== */
 .nav-link {
   position: relative;
   margin: 0 1rem;
@@ -416,20 +382,19 @@ body {
   font-weight: var(--weight-semibold);
   text-decoration: none;
   color: var(--text-color);
-  transition: color var(--transition-speed) ease; /* Dùng biến tốc độ chung */
+  /* ĐÃ XÓA TRANSITION */
 }
 
-/* Thanh gạch chân căn giữa */
 .nav-link::after {
   content: '';
   position: absolute;
-  bottom: -4px;
+  bottom: -2px;
   height: 2px;
   left: 50%;
   transform: translateX(-50%);
   width: 0%;
   background-color: var(--text-color);
-  transition: width 0.3s ease-in-out;
+  transition: width 0.3s ease-in-out; /* Giữ lại animation hover gạch chân */
 }
 
 .nav-link:hover {
@@ -449,18 +414,95 @@ body {
   width: 100%;
 }
 
-/* Hiệu ứng mũi tên nhún nhảy cho nút chuyển dự án */
 @keyframes bounce-slow {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(2px); /* Nhún nhẹ 2px cho tinh tế */
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(2px); }
 }
 
 .animate-bounce-slow {
   display: inline-block;
   animation: bounce-slow 1.5s ease-in-out infinite;
-  opacity: 0.8; /* Làm mũi tên cũng nhạt bớt cho tiệp với chữ */
+  opacity: 0.8; 
+}
+
+/* ==================== SWITCH & ICON ==================== */
+.theme-switch-item {
+  display: flex;
+  align-items: center; 
+  height: 100%; 
+}
+
+.theme-toggle-btn.nav-link {
+  cursor: pointer;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  position: relative;
+  color: var(--text-color); 
+  height: 1.5em; 
+  margin: 0 1rem;
+  padding: 5px 0; 
+  overflow: visible; 
+}
+
+.theme-toggle-btn input {
+  display: none;
+}
+
+.icon-wrapper {
+  position: relative;
+  width: 24px; 
+  height: 24px; 
+  overflow: hidden; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 0px; 
+  margin-bottom: -4px; 
+  box-sizing: content-box;
+}
+
+.icon-wrapper svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  /* TRANSITION ICON RIÊNG BIỆT - KHÔNG ẢNH HƯỞNG ĐẾN MÀU */
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.moon-icon {
+  opacity: 0;
+  transform: translateY(-20px) rotate(-30deg);
+}
+.sun-icon {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hover Effect */
+.theme-toggle-btn:hover .sun-icon {
+  transform: translateY(10px); 
+}
+.theme-toggle-btn:hover::after {
+  width: 100%; 
+}
+
+/* Dark Mode Logic */
+.theme-toggle-btn input:checked ~ .icon-wrapper .sun-icon {
+  opacity: 0;
+  transform: translateY(20px) rotate(90deg);
+}
+
+.theme-toggle-btn input:checked ~ .icon-wrapper .moon-icon {
+  opacity: 1;
+  transform: translateY(0) rotate(0);
+}
+
+.theme-toggle-btn:hover input:checked ~ .icon-wrapper .moon-icon {
+  transform: translateY(10px);
+}
+
+.theme-toggle-btn.nav-link::after {
+  bottom: -6px !important; 
+  height: 2px !important; 
 }
