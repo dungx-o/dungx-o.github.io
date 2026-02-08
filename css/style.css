@@ -130,13 +130,13 @@ body {
 }
 
 /* LOGO */
+/* Trạng thái mặc định (Light Mode) */
 .navbar #logo img {
   display: block;
   width: 100px;
-  /* ĐÃ XÓA TRANSITION */
-  transition: transform var(--transition-speed) var(--transition-timing),
-              background-color var(--transition-speed) var(--transition-timing),
-              border-color var(--transition-speed) var(--transition-timing);
+  filter: invert(0); /* Khai báo rõ trạng thái gốc */
+  transition: all var(--transition-speed) var(--transition-timing) !important;
+  will-change: filter;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
@@ -148,7 +148,7 @@ body {
 }
 
 [data-theme="dark"] .navbar #logo img {
-  filter: invert(1);
+  filter: invert(1) !important;
 }
 
 .navbar .btn {
@@ -317,6 +317,7 @@ body {
 #footer .social img {
   width: 20px;
   height: 20px;
+  transition: filter var(--transition-speed) var(--transition-timing);
 }
 
 /* ==================== RESPONSIVE ==================== */
@@ -541,6 +542,7 @@ body {
   height: 2px !important; 
 }
 
-* {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+#content-preview .group .absolute {
+  transition: background-color var(--transition-speed) var(--transition-timing), 
+              border-color var(--transition-speed) var(--transition-timing);
 }
