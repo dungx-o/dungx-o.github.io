@@ -124,6 +124,11 @@ body {
   /* ĐÃ XÓA TRANSITION */
 }
 
+/* Khi có class này, Navbar sẽ trượt lên trên (-100% chiều cao của nó) */
+.navbar-hidden {
+  transform: translateY(-100%);
+}
+
 [data-theme="dark"] .navbar #logo img {
   filter: invert(1);
 }
