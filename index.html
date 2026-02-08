@@ -43,17 +43,17 @@
 
   <body class="bg-white text-neutral-900 dark:bg-black dark:text-white transition-colors duration-300 ease-in-out">
 
-  <nav class="navbar sticky top-0 z-50 w-full bg-white/90 dark:bg-black backdrop-blur-sm dark:backdrop-blur-none border-b border-neutral-200 dark:border-gray-800 transition-colors duration-300 ease-in-out">
-    <div class="w-full max-w-[1121px] mx-auto flex justify-between items-center h-16 px-4 md:px-8">
+  <nav id="main-navbar" class="navbar sticky top-0 z-50 w-full bg-white/90 dark:bg-black backdrop-blur-sm dark:backdrop-blur-none border-b border-neutral-200 dark:border-gray-800 transition-transform duration-300 ease-in-out">
+    <div class="w-full max-w-[1120px] mx-auto flex justify-between items-center h-16 px-4 md:px-8">
         <h1 id="logo">
             <a href="index.html"><img id="logo-img" src="./assets/favicon/logo.svg" alt="Logo của tôi" class="transition-all duration-300 ease-in-out"/></a>
         </h1>
-        <ul class="nav-menu">
+        <ul class="nav-menu flex items-center gap-1 xl:-mr-4 transition-all duration-300 ease-in-out">
             <li><a class="nav-link dark:text-gray-300 hover:dark:text-white transition-colors duration-300 ease-in-out" href="index.html">Home</a></li>
             <li><a class="nav-link dark:text-gray-300 hover:dark:text-white transition-colors duration-300 ease-in-out" href="about.html">About</a></li>
             <li><a class="nav-link dark:text-gray-300 hover:dark:text-white transition-colors duration-300 ease-in-out" href="projects.html">Projects</a></li>
             <li><a class="nav-link dark:text-gray-300 hover:dark:text-white transition-colors duration-300 ease-in-out" href="content.html">Content</a></li>
-            <li class="theme-switch">
+            <li class="theme-switch !-ml-1">
               <label for="switch" class="nav-link theme-toggle-btn" style="padding-bottom: 5px;">
                   <input type="checkbox" id="switch" />
                   
@@ -117,7 +117,7 @@
             </div>
       
             <div class="flex-1 hidden md:flex justify-end items-center relative">
-                <div class="relative w-full max-w-[21rem]">
+                <div class="relative w-full max-w-[21rem] mr-6">
                     
                     <div class="absolute inset-0 z-0 scale-110 rounded-[50%/40%] border border-neutral-400 
                                 bg-gradient-to-r from-white via-neutral-50 to-white shadow-sm
