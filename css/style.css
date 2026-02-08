@@ -19,7 +19,8 @@
 
   /* --- CÁC BIẾN MỚI --- */
   --header-border: #e0e0e0;
-  --transition-speed: 0.3s; /* Biến này vẫn giữ để dùng cho animation khác nếu cần */
+  --transition-speed: 0.3s;
+  --transition-timing: ease-in-out;
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 
   /* Font Weight & Size */
@@ -29,6 +30,9 @@
   --width-small: 600px;
   --width-medium: 1100px;
   --width-large: 1300px;
+
+  --sync-speed: 0.25s; /* 0.25s là tốc độ lý tưởng cho mắt */
+  --sync-easing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ==================== DARK MODE OVERRIDES ==================== */
@@ -62,6 +66,9 @@ a {
   text-decoration: none;
   color: var(--text-color);
   /* ĐÃ XÓA TRANSITION Ở ĐÂY ĐỂ TRÁNH XUNG ĐỘT */
+  transition: transform var(--transition-speed) var(--transition-timing),
+              background-color var(--transition-speed) var(--transition-timing),
+              border-color var(--transition-speed) var(--transition-timing);
 }
 
 a:hover {
@@ -74,6 +81,8 @@ body {
   font-family: "Raleway", sans-serif;
   line-height: 1.5;
   /* ĐÃ XÓA TRANSITION Ở ĐÂY ĐỂ TAILWIND LO */
+  transition: background-color var(--transition-speed) var(--transition-timing), 
+              color var(--transition-speed) var(--transition-timing);
 }
 
 /* ==================== NAVBAR ==================== */
@@ -86,6 +95,9 @@ body {
   background: var(--bg-primary);
   border-bottom: 1px solid var(--header-border);
   /* ĐÃ XÓA TRANSITION Ở ĐÂY */
+  transition: transform var(--transition-speed) var(--transition-timing),
+              background-color var(--transition-speed) var(--transition-timing),
+              border-color var(--transition-speed) var(--transition-timing);
 }
 
 .navbar .container {
@@ -122,11 +134,17 @@ body {
   display: block;
   width: 100px;
   /* ĐÃ XÓA TRANSITION */
+  transition: transform var(--transition-speed) var(--transition-timing),
+              background-color var(--transition-speed) var(--transition-timing),
+              border-color var(--transition-speed) var(--transition-timing);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
 }
 
 /* Khi có class này, Navbar sẽ trượt lên trên (-100% chiều cao của nó) */
 .navbar-hidden {
   transform: translateY(-100%);
+  z-index: 100 !important;
 }
 
 [data-theme="dark"] .navbar #logo img {
@@ -156,6 +174,9 @@ body {
   border-radius: 30px;
   background-color: var(--text-color);
   /* ĐÃ XÓA TRANSITION */
+  transition: transform var(--transition-speed) var(--transition-timing),
+              background-color var(--transition-speed) var(--transition-timing),
+              border-color var(--transition-speed) var(--transition-timing);
 }
 
 /* ==================== HERO SECTION ==================== */
@@ -244,6 +265,9 @@ body {
   padding-top: 10px;
   margin-top: 120px; 
   /* ĐÃ XÓA TRANSITION */
+  transition: transform var(--transition-speed) var(--transition-timing),
+              background-color var(--transition-speed) var(--transition-timing),
+              border-color var(--transition-speed) var(--transition-timing);
 }
 
 .dark #footer,
@@ -310,7 +334,9 @@ body {
     top: 4.5rem;
     flex-direction: column;
     width: calc(80% - 10px);
-    transition: 0.3s ease-in-out; /* Mobile menu transition */
+    transition: right 0.3s ease-in-out, /* Giữ hiệu ứng trượt ra vào */
+                background-color var(--transition-speed) var(--transition-timing),
+                border-color var(--transition-speed) var(--transition-timing);
     box-shadow: var(--shadow);
     padding: 2rem;
     border-radius: 5px;
@@ -388,6 +414,9 @@ body {
   text-decoration: none;
   color: var(--text-color);
   /* ĐÃ XÓA TRANSITION */
+  transition: transform var(--transition-speed) var(--transition-timing),
+              background-color var(--transition-speed) var(--transition-timing),
+              border-color var(--transition-speed) var(--transition-timing);
 }
 
 .nav-link::after {
@@ -510,4 +539,8 @@ body {
 .theme-toggle-btn.nav-link::after {
   bottom: -6px !important; 
   height: 2px !important; 
+}
+
+* {
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
 }

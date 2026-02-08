@@ -76,3 +76,25 @@ if (dateElement) {
   const currentYear = new Date().getFullYear();
   dateElement.innerHTML = currentYear;
 }
+
+window.addEventListener('DOMContentLoaded', function() {
+  var path = window.location.pathname;
+  var navLinks = document.querySelectorAll('.nav-link');
+
+  // Dùng vòng lặp for truyền thống
+  for (var i = 0; i < navLinks.length; i++) {
+      var link = navLinks[i];
+      var href = link.getAttribute('href');
+
+      // Logic kiểm tra trang chủ
+      // Lưu ý: endsWith chữ W phải viết hoa
+      var isHomePage = (path === '/' || path === '' || (path.endsWith && path.endsWith('index.html')));
+
+      if (isHomePage && href === 'index.html') {
+          link.classList.add('active');
+      } 
+      else if (href !== 'index.html' && path.indexOf(href) !== -1) {
+          link.classList.add('active');
+      }
+  }
+});
