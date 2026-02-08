@@ -136,7 +136,7 @@ body {
 /* --- LOGO XỬ LÝ ĐỒNG BỘ MÀU --- */
 .navbar #logo img {
   display: block;
-  width: 70px;
+  width: 100px;
   /* Quan trọng: dòng này giúp logo đổi màu mượt */
   transition: filter var(--transition-speed) ease;
 }
