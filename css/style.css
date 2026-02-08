@@ -1,5 +1,4 @@
-/* 
-  Styling chính cho layout: navbar, hero, projects, footer, responsive...
+/* Styling chính cho layout: navbar, hero, projects, footer, responsive...
   - Thiết lập font, màu, reset CSS
   - Layout grid/flex cho project
   - Hiệu ứng hover, animation nhỏ
@@ -12,21 +11,25 @@
   /* Colors */
   --primary-color: #ffcd42;
   --secondary-color: #ffd35c;
+  
   --bg-primary: #ffffff;
+  --bg-secondary: #000000;
+  --bg-secondary-two: #111111;
+  
   --text-color: #222222;
   --text-color-two: #ffffff;
-  --bg-secondary: #000000;
+  
   --card-background: #f4f4f4;
-  --bg-secondary-two: #111111;
 
+  /* --- CÁC BIẾN MỚI SỬA --- */
+  --header-border: #e0e0e0; /* Viền header đậm hơn ở chế độ sáng */
+  --transition-speed: 0.2s; /* Tốc độ chuyển đổi nhanh và đồng bộ */
   --shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 
-  /* Font Weight */
+  /* Font Weight & Size */
   --weight-small: 400;
   --weight-semibold: 600;
   --weight-bold: 800;
-
-  /* Max width */
   --width-small: 600px;
   --width-medium: 1100px;
   --width-large: 1300px;
@@ -34,15 +37,17 @@
 
 /* ==================== DARK MODE THEME OVERRIDES ==================== */
 [data-theme="dark"] {
-  --primary-color: #ffcd42;
-  --secondary-color: #ffd35c;
+  /* Chế độ Pitch Black (Đen tuyền) */
   --bg-primary: #000000;
+  --bg-secondary: #ffffff; 
+  
   --text-color: #ffffff;
-  --text-color-two: #222222;
-  --bg-secondary: #ffffff;
-  --card-background: #111111;
-  --bg-secondary-two: #f4f4f4;
-  --shadow: 0 2px 10px rgba(95, 95, 95, 0.2);
+  --text-color-two: #000000;
+  
+  --card-background: #333333; /* Màu nền cho card */
+  --header-border: #333333;   /* Viền header xám tối trên nền đen */
+  
+  --shadow: none; 
 }
 
 /* ==================== GLOBAL RESET & BASE ==================== */
@@ -64,6 +69,7 @@ ul {
 a {
   text-decoration: none;
   color: var(--text-color);
+  transition: color var(--transition-speed) ease;
 }
 
 /* Hiệu ứng hover chung cho link */
@@ -76,6 +82,7 @@ body {
   color: var(--text-color);
   font-family: "Raleway", sans-serif;
   line-height: 1.5;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
 }
 
 /* ==================== NAVBAR ==================== */
@@ -85,8 +92,15 @@ body {
   left: 0;
   right: 0;
   z-index: 20;
+  
   background: var(--bg-primary);
-  border-bottom: 1px solid var(--card-background);
+  
+  /* Sử dụng biến màu viền riêng để chỉnh độ đậm nhạt tùy ý */
+  border-bottom: 1px solid var(--header-border);
+  
+  /* Đồng bộ tốc độ transition */
+  transition: background-color var(--transition-speed) ease, 
+              border-color var(--transition-speed) ease;
 }
 
 .navbar .container {
@@ -101,7 +115,8 @@ body {
 .navbar .nav-menu {
   display: flex;
   align-items: center;
-  background: var(--bg-primary);
+  background: transparent;
+  transition: background-color var(--transition-speed) ease;
 }
 
 .navbar .nav-link {
@@ -109,6 +124,7 @@ body {
   font-size: 0.8rem;
   font-weight: var(--weight-semibold);
   cursor: pointer;
+  color: var(--text-color); /* Đảm bảo chữ luôn đúng màu */
 }
 
 .navbar .nav-menu .theme-switch {
@@ -117,9 +133,17 @@ body {
   align-items: center;
 }
 
+/* --- LOGO XỬ LÝ ĐỒNG BỘ MÀU --- */
 .navbar #logo img {
   display: block;
   width: 70px;
+  /* Quan trọng: dòng này giúp logo đổi màu mượt */
+  transition: filter var(--transition-speed) ease;
+}
+
+/* Khi Dark Mode kích hoạt -> Đảo màu logo */
+[data-theme="dark"] .navbar #logo img {
+  filter: invert(1);
 }
 
 .navbar .btn {
@@ -144,7 +168,7 @@ body {
   margin: 4px auto;
   transition: all 0.3s ease-in-out;
   border-radius: 30px;
-  background-color: var(--bg-secondary);
+  background-color: var(--text-color); /* Dùng text-color để tự đổi trắng/đen */
 }
 
 /* ==================== HERO SECTION ==================== */
@@ -164,23 +188,14 @@ body {
 
 /* Animation cho ảnh profile */
 @keyframes bounce {
-  from {
-    transform: translateY(0px);
-  }
-
-  to {
-    transform: translateY(-4px);
-  }
+  from { transform: translateY(0px); }
+  to { transform: translateY(-4px); }
 }
 
-/* Animation cho icon mũi tên trong nút "Let's checkout my projects" */
+/* Animation cho icon mũi tên */
 @keyframes arrowBounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(3px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
 }
 
 /* Hiệu ứng hover nhẹ cho nút scroll xuống projects */
@@ -242,69 +257,59 @@ body {
 
 /* ==================== FOOTER ==================== */
 #footer {
-  background-color: #ffffff; /* Mặc định trắng */
-  color: #1a1a1a;            /* Chữ đen trên nền trắng */
-  padding: 15px 0;           /* Giảm chiều dọc (40px -> 15px) */
-  border: none;              /* Bỏ đường kẻ phân chia */
-  transition: all 0.3s ease;
+  background-color: #ffffff;
+  color: #1a1a1a;
+  padding: 15px 0;
+  border: none;
+  
+  /* Thêm border-top và padding */
+  border-top: 1px solid #dddddd; 
+  padding-top: 20px;
+  margin-top: 40px; 
+
+  transition: all var(--transition-speed) ease;
 }
 
 /* Khi ở Dark Mode */
-.dark #footer {
+.dark #footer,
+[data-theme="dark"] #footer {
   background-color: #000000 !important;
   color: #ffffff !important;
+  border-top: 1px solid #333333; /* Đổi màu kẻ footer tối hơn */
 }
 
-/* Container bên trong */
 #footer .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
-  /* ĐẢM BẢO CHIỀU RỘNG */
-  width: 100%;       /* Bắt buộc container chiếm hết chiều ngang footer */
+  width: 100%;
   max-width: 1024px; 
   margin: 0 auto;
-  
-  /* Khoảng cách an toàn để không chạm mép màn hình */
-  padding: 0 20px;   
-  
-  /* Đảm bảo không bị bọc xuống dòng nếu không cần thiết */
+  padding: 0 20px; 
   flex-wrap: nowrap; 
 }
 
-#footer {
-  /* Tạo đường kẻ ngang phía trên */
-  border-top: 1px solid #dddddd; 
-  
-  /* Thêm khoảng cách giữa đường kẻ và nội dung bên trong footer */
-  padding-top: 20px;
-  
-  /* (Tùy chọn) Thêm khoảng cách giữa đường kẻ và nội dung phía trên footer */
-  margin-top: 40px; 
-}
-
-/* Sửa lỗi chữ bị trắng trên nền trắng */
 #footer a {
   font-size: 0.85rem;
-  color: inherit; /* Tự động lấy màu từ thẻ cha #footer */
+  color: inherit;
   text-decoration: none;
 }
 
 #footer p {
   font-size: 0.75rem;
-  color: #666; /* Màu xám nhẹ cho dòng bản quyền */
+  color: #666;
 }
 
-.dark #footer p {
-  color: #aaa; /* Xám sáng hơn ở dark mode */
+.dark #footer p,
+[data-theme="dark"] #footer p {
+  color: #aaa;
 }
 
 /* Đảo màu icon khi ở dark mode */
-.dark #footer .social img {
+.dark #footer .social img,
+[data-theme="dark"] #footer .social img {
   filter: invert(1);
 }
-
 
 #footer .social {
   display: flex;
@@ -337,6 +342,10 @@ body {
     padding: 2rem;
     border-radius: 5px;
     align-items: flex-start;
+    
+    /* Đảm bảo menu mobile cũng đen khi dark mode */
+    background: var(--bg-primary); 
+    border: 1px solid var(--header-border);
   }
 
   .navbar .btn {
@@ -399,22 +408,59 @@ body {
   }
 }
 
+/* ==================== NAVBAR LINKS (FINAL VERSION) ==================== */
 .nav-link {
-  padding: 8px 16px;
-  border-radius: 8px;
+  position: relative;
+  margin: 0 1rem;
+  padding: 5px 0;
+  font-weight: var(--weight-semibold);
   text-decoration: none;
-  transition: all 0.3s ease;
+  color: var(--text-color);
+  transition: color var(--transition-speed) ease; /* Dùng biến tốc độ chung */
 }
 
-/* Hiệu ứng hover khi đưa chuột vào (phụ thuộc light/dark mode) */
-.nav-link:hover:not(.active) {
-  background-color: var(--bg-secondary);
-  color: var(--bg-primary);
-  opacity: 0.8;
+/* Thanh gạch chân căn giữa */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  height: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0%;
+  background-color: var(--text-color);
+  transition: width 0.3s ease-in-out;
 }
 
-/* Hiệu ứng khi mục trên navbar đang active (phụ thuộc light/dark mode) */
+.nav-link:hover {
+  text-shadow: 0 0 1px currentColor; 
+  opacity: 1;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
 .nav-link.active {
-  background-color: var(--bg-secondary);
-  color: var(--bg-primary);
+  text-shadow: 0 0 1px currentColor;
+}
+
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Hiệu ứng mũi tên nhún nhảy cho nút chuyển dự án */
+@keyframes bounce-slow {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(2px); /* Nhún nhẹ 2px cho tinh tế */
+  }
+}
+
+.animate-bounce-slow {
+  display: inline-block;
+  animation: bounce-slow 1.5s ease-in-out infinite;
+  opacity: 0.8; /* Làm mũi tên cũng nhạt bớt cho tiệp với chữ */
 }

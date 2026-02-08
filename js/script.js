@@ -23,17 +23,6 @@ navLink.forEach((n) =>
 );
 
 // ==================== DARK MODE TOGGLE & LOGO ====================
-// Đổi logo theo theme hiện tại
-function updateLogo(theme) {
-  const logoImg = document.getElementById("logo-img");
-  if (!logoImg) return;
-
-  if (theme === "dark") {
-    logoImg.src = "./assets/favicon/mylogo-darkmode.png";
-  } else {
-    logoImg.src = "./assets/favicon/mylogo.png";
-  }
-}
 
 // Lắng nghe sự kiện toggle dark/light mode
 const toggleSwitch = document.querySelector(

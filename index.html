@@ -1,275 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Tailwind CDN phục vụ các class tiện ích (flex, grid, responsive, ...) -->
-    <script src="https://cdn.tailwindcss.com"></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Thông tin SEO cơ bản cho trang -->
     <title>Portfolio Template - Open source</title>
+    
     <meta name="title" content="Portfolio Template - Open source" />
-    <meta
-      name="description"
-      content="Build or customize your portfolio website using this super easy template. Free to use if you are a member of the community or a contributor to this project"
-    />
-
-    <!-- Thẻ Open Graph dùng khi chia sẻ link lên Facebook/Zalo -->
+    <meta name="description" content="Build or customize your portfolio website using this super easy template." />
     <meta property="og:type" content="website" />
-    <meta
-      property="og:url"
-      content="https://github.com/CommunityPro/portfolio-html"
-    />
+    <meta property="og:url" content="https://github.com/CommunityPro/portfolio-html" />
     <meta property="og:title" content="Portfolio Template - Open source" />
-    <meta
-      property="og:description"
-      content="Build or customize your portfolio website using this super easy template. Free to use if you are a member of the community or a contributor to this project"
-    />
-    <meta
-      property="og:image"
-      content="https://user-images.githubusercontent.com/62628408/150613011-b78a7f5a-0af1-4312-aab0-0022e7258693.png"
-    />
-
-    <!-- Thẻ preview khi chia sẻ link lên Twitter/X -->
+    <meta property="og:description" content="Build or customize your portfolio website using this super easy template." />
+    <meta property="og:image" content="https://user-images.githubusercontent.com/62628408/150613011-b78a7f5a-0af1-4312-aab0-0022e7258693.png" />
     <meta property="twitter:card" content="summary_large_image" />
-    <meta
-      property="twitter:url"
-      content="https://github.com/CommunityPro/portfolio-html"
-    />
+    <meta property="twitter:url" content="https://github.com/CommunityPro/portfolio-html" />
     <meta property="twitter:title" content="Portfolio Template - Open source" />
-    <meta
-      property="twitter:description"
-      content="Build or customize your portfolio website using this super easy template. Free to use if you are a member of the community or a contributor to this project"
-    />
-    <meta
-      property="twitter:image"
-      content="assets/favicon/mylogo.png"
-    />
-
-    <!-- Favicon / Logo hiển thị trên tab trình duyệt -->
-    <link
-      rel="icon"
-      type="image/png"
-      href="assets/favicon/mylogo.png"
-    />
+    <meta property="twitter:description" content="Build or customize your portfolio website using this super easy template." />
+    <meta property="twitter:image" content="assets/favicon/mylogo.png" />
+    
+    <link rel="icon" type="image/png" href="assets/favicon/mylogo.png" />
     <link rel="manifest" href="assets/favicon/site.webmanifest" />
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-      crossorigin="anonymous"
-    />
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous" />
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/utilities.css" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            // Dòng này giúp Tailwind nhận diện Dark Mode qua thẻ data-theme="dark" trong CSS của bạn
+            darkMode: ['class', '[data-theme="dark"]'], 
+            theme: {
+                extend: {
+                    colors: {
+                        'dark-bg': '#000000',
+                    }
+                }
+            }
+        }
+    </script>
   </head>
   <body>
-    <!-- ==================== HEADER / HERO SECTION ==================== -->
     <header id="hero">
-      <!-- Navbar -->
-      <nav class="navbar">
-        <div class="max-w-5xl mx-auto px-5 flex justify-between items-center w-full">
-          <!-- Logo (tạm thời trỏ về repo template, nên đổi sang link cá nhân sau) -->
-          <h1 id="logo">
-            <a href="https://github.com/CommunityPro/portfolio-html"
-              ><img id="logo-img" src="./assets/favicon/mylogo.png" alt="Logo của tôi" 
-            /></a>
-          </h1>
-          <!-- Navbar links điều hướng giữa các trang -->
-          <ul class="nav-menu">
-            <li><a class="nav-link" href="index.html">Home</a></li>
-            <li><a class="nav-link" href="about.html">About</a></li>
-            <li><a class="nav-link" href="projects.html">Projects</a></li>
-            <li><a class="nav-link" href="content.html">Content</a></li>
-            <!-- Nút chuyển Dark/Light mode -->
-            <li class="theme-switch">
-              <input type="checkbox" id="switch" />
-              <label for="switch" class="toggle-icons">
-                <img class="sun" src="assets/icon/sun.svg" alt="sun" />
-                <img class="moon" src="assets/icon/moon.svg" alt="moon" />
-              </label>
-            </li>
-          </ul>
-          
-          <!-- Nút menu cho màn hình nhỏ (mobile) -->
-          <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
+      <nav class="navbar sticky top-0 z-50 w-full bg-white/90 dark:bg-black/90 backdrop-blur-sm border-b border-neutral-200 dark:border-gray-800 transition-colors duration-300">
+        <div class="max-w-5xl mx-auto flex justify-between items-center w-full h-16 px-4">
+            <h1 id="logo">
+                <a href="index.html"><img id="logo-img" src="./assets/favicon/logo.svg" alt="Logo của tôi" /></a>
+            </h1>
+            <ul class="nav-menu">
+                <li><a class="nav-link" href="index.html">Home</a></li>
+                <li><a class="nav-link" href="about.html">About</a></li>
+                <li><a class="nav-link" href="projects.html">Projects</a></li>
+                <li><a class="nav-link" href="content.html">Content</a></li>
+                <li class="theme-switch">
+                    <input type="checkbox" id="switch" />
+                    <label for="switch" class="toggle-icons">
+                        <img class="sun" src="assets/icon/sun.svg" alt="sun" />
+                        <img class="moon" src="assets/icon/moon.svg" alt="moon" />
+                    </label>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
       </nav>
 
-      <!-- Hero giới thiệu ngắn gọn về bản thân -->
       <section class="header-container">
         <div class="flex flex-col md:flex-row items-center md:items-start gap-8 md:gap-16 w-full max-w-5xl mx-auto">
-          <!-- Text content - bên trái (title, mô tả ngắn, CTA) -->
           <div class="flex-1 md:text-left text-center md:max-w-2xl">
             <h1>Hi, I'm Dũng.</h1>
-
             <div class="content-text">
               <h2>Aspiring ML/AI Engineer</h2>
-
-              <!-- Ảnh chỉ hiển thị trên mobile, nằm ngay dưới dòng "Aspiring ML/AI Engineer" -->
               <div class="flex justify-center mt-6 md:hidden">
-                <img src="assets/images/photo.png"
-                     loading="eager"
-                     class="profile-image w-full max-w-[18rem] aspect-[790/1189]"
-                     style="border-radius: 50% / 40%;"
-                     alt="">
+                <img src="assets/images/photo.png" loading="eager" class="profile-image w-full max-w-[18rem] aspect-[790/1189]" style="border-radius: 50% / 40%;" alt="">
               </div>
-              
               <p>Computer Science Student at Hanoi University of Science and Technology (HUST)</p>
-              
               <p><strong>Hard skills:</strong> Python, C/C++, HTML, Bilingual (English, Vietnamese)</p>
-              
               <p><strong>Key highlights:</strong> Third Prize in Vietnam Mathematical Olympiad (VMO), Silver Medal in National Student Mathematics Olympiad</p>
-              
             </div>
-            
-            <!-- Nút dẫn sang trang giới thiệu chi tiết hơn -->
             <a href="about.html" class="btn btn-secondary">
               More about me <i class="fas fa-arrow-right"></i>
             </a>
           </div>
 
-          <!-- Ảnh profile - bên phải (ẩn trên mobile, chỉ hiện từ md trở lên) -->
           <div class="relative justify-end hidden md:flex w-full md:w-1/2 md:pl-10">
-
             <div class="relative z-10 w-full">
-
-              <!-- Khối ảnh profile + border bo tròn -->
               <div class="relative z-10 px-6 md:px-10 flex items-center justify-center">
-                <!-- Border nền phía sau ảnh để tạo hiệu ứng khung -->
-                <div
-                  class="absolute inset-1/2 z-0 
-                        w-full max-w-[23rem] aspect-[790/1189]
-                        -translate-x-1/2 -translate-y-1/2
-                        rounded-[50%/40%]
-                        border border-neutral-400
-                        bg-gradient-to-r from-white via-neutral-50 to-white">
-                </div>
-
-                <img src="assets/images/photo.png"
-                     loading="eager"
-                     class="profile-image relative z-10 w-full aspect-[790/1189] 
-                            max-w-[21rem] mx-auto"
-                     style="border-radius: 50% / 40%;"
-                     alt="">
+                <div class="absolute inset-1/2 z-0 w-full max-w-[23rem] aspect-[790/1189] -translate-x-1/2 -translate-y-1/2 rounded-[50%/40%] border border-neutral-400 bg-gradient-to-r from-white via-neutral-50 to-white"></div>
+                <img src="assets/images/photo.png" loading="eager" class="profile-image relative z-10 w-full aspect-[790/1189] max-w-[21rem] mx-auto" style="border-radius: 50% / 40%;" alt="">
               </div>
-
             </div>
           </div>
         </div>
       </section>
     </header>
-
-    <!-- ==================== DIVIDER SCROLL TO PROJECTS ==================== -->
     <div class="relative my-32 flex justify-center">
-      <div class="relative w-full max-w-5xl px-5">
-        <div class="w-full h-px bg-neutral-300 dark:bg-neutral-700"></div>
+      <div class="relative w-full max-w-5xl">
+        <div class="w-full h-px bg-neutral-200 dark:bg-neutral-800"></div>
       </div>
-      <div id="scroll-to-projects" class="absolute flex items-center justify-center px-4 py-1.5 uppercase tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-full left-1/2 -translate-x-1/2 shadow-sm cursor-pointer" style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background);">
-        <p class="flex items-center gap-2 leading-none">
+      <div id="scroll-to-projects" class="absolute flex items-center justify-center px-2.5 py-1 tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-full left-1/2 -translate-x-1/2 shadow-sm cursor-pointer" style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background);">
+        <p class="flex items-center gap-1 leading-none opacity-70">
           Let's check out my projects
-          <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+          <svg class="w-2.5 h-2.5 animate-bounce-slow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" />
           </svg>
         </p>
       </div>
     </div>
-    <!-- ==================== PROJECTS SECTION ==================== -->
-    <section id="projects" class="project-container container max-w-5xl mx-auto">
-      <!-- Tiêu đề + mô tả ngắn cho danh sách project -->
+
+    <section id="projects" class="project-container max-w-5xl mx-auto">
       <div class="content-text">
         <h2>Projects</h2>
         <p>Here are some of my recent projects. I'm continuously building, experimenting, and learning, so check back often to see what's new.</p>
       </div>
 
       <article class="project">
-        <!-- Project 1 -->
-        <!-- Thẻ card cho từng project (có thể thay nội dung bằng project thật) -->
         <div class="card">
           <div class="project-info">
             <div class="project-bio">
               <h3>Project One</h3>
               <p>React, Redux, SASS</p>
             </div>
-
             <div class="project-link">
               <a href="#" target="_blank"><i class="fab fa-github"></i></a>
               <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
             </div>
           </div>
         </div>
-
-        <!-- Project 2 -->
         <div class="card">
           <div class="project-info">
             <div class="project-bio">
               <h3>Project Two</h3>
               <p>React, Redux, SASS</p>
             </div>
-
             <div class="project-link">
               <a href="#" target="_blank"><i class="fab fa-github"></i></a>
               <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
             </div>
           </div>
         </div>
-
-        <!-- Project 3 -->
         <div class="card">
           <div class="project-info">
             <div class="project-bio">
               <h3>Project Three</h3>
               <p>React, Redux, SASS</p>
             </div>
-
             <div class="project-link">
               <a href="#" target="_blank"><i class="fab fa-github"></i></a>
               <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
             </div>
           </div>
         </div>
-
-        <!-- Project 4 -->
         <div class="card">
           <div class="project-info">
             <div class="project-bio">
               <h3>Project Four</h3>
               <p>React, Redux, SASS</p>
             </div>
-
             <div class="project-link">
               <a href="#" target="_blank"><i class="fab fa-github"></i></a>
               <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
             </div>
           </div>
         </div>
-
-        <!-- Project 5 -->
         <div class="card">
           <div class="project-info">
             <div class="project-bio">
               <h3>Project Five</h3>
               <p>React, Redux, SASS</p>
             </div>
-
             <div class="project-link">
               <a href="#" target="_blank"><i class="fab fa-github"></i></a>
               <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
             </div>
           </div>
         </div>
-
-        <!-- Project 6 -->
         <div class="card">
           <div class="project-info">
             <div class="project-bio">
               <h3>Project Six</h3>
               <p>React, Redux, SASS</p>
             </div>
-
             <div class="project-link">
               <a href="#" target="_blank"><i class="fab fa-github"></i></a>
               <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
@@ -278,14 +193,11 @@
         </div>
       </article>
       
-      <!-- Nút dẫn sang trang liệt kê đầy đủ tất cả project -->
-      <a href="projects.html" class="btn btn-secondary">View all my projects <i class="fas fa-arrow-right"></i
-        ></a>
+      <a href="projects.html" class="btn btn-secondary">View all my projects <i class="fas fa-arrow-right"></i></a>
     </section>
 
-    <!-- ==================== DIVIDER SCROLL TO CONTENT ==================== -->
     <div class="relative my-32 flex justify-center">
-      <div class="relative w-full max-w-5xl px-5">
+      <div class="relative w-full max-w-5xl">
         <div class="w-full h-px bg-neutral-300 dark:bg-neutral-700"></div>
       </div>
       <div id="scroll-to-content" class="absolute flex items-center justify-center px-4 py-1.5 uppercase tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-full left-1/2 -translate-x-1/2 shadow-sm cursor-pointer" style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background);">
@@ -298,8 +210,7 @@
       </div>
     </div>
 
-    <!-- ==================== MY CONTENT SECTION ==================== -->
-    <section id="content-preview" class="project-container max-w-5xl mx-auto px-4">
+    <section id="content-preview" class="project-container max-w-5xl mx-auto">
       <div class="content-text mb-10"> 
         <h2 class="text-left">Content</h2>
         <p class="text-left">
@@ -307,165 +218,72 @@
         </p>
       </div>
 
-      <div class="w-full max-w-5xl mx-auto my-7 px-4 xl:px-0">
+      <div class="w-full my-7">
         <div class="flex flex-col items-center">
-          <!-- LIST BÀI VIẾT BÊN TRÁI -->
           <div class="w-full space-y-7">
-            <!-- Post 1 -->
-            <div
-              class="relative border border-transparent border cursor-pointer p-5 group rounded-2xl"
-              onclick="location.href='https://your-link-post-1.com'"
-            >
-              <div
-                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
-              ></div>
-              <div
-                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
-              ></div>
-              <div
-                class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4"
-              >
-                <!-- Ảnh bên trái -->
-                <img
-                  src="assets/images/post-1.png"
-                  alt="Post 1 thumbnail"
-                  class="w-20 h-20 rounded-xl object-cover flex-shrink-0"
-                />
-                <!-- Nội dung bên phải -->
+            <div class="relative border border-transparent cursor-pointer p-5 group rounded-2xl" onclick="location.href='https://your-link-post-1.com'">
+              <div class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white dark:bg-white border-2 border-neutral-700 dark:border-neutral-700 rounded-2xl group-hover:-translate-x-1 group-hover:-translate-y-1"></div>
+              <div class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border-neutral-400 dark:border-neutral-400 rounded-2xl group-hover:translate-x-1 group-hover:translate-y-1"></div>
+              <div class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4">
+                <img src="assets/images/post-1.png" alt="Post 1 thumbnail" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-neutral-200" />
                 <div>
                   <h3 class="flex items-center mb-2">
-                    <a
-                      href="https://your-link-post-1.com"
-                      class="text-base font-bold leading-tight tracking-tight sm:text-lg dark:text-neutral-100"
-                    >
+                    <a href="https://your-link-post-1.com" class="text-base font-bold leading-tight tracking-tight sm:text-lg text-neutral-900 dark:text-neutral-900">
                       How I Got Into Machine Learning
                     </a>
                   </h3>
-                  <p class="text-sm text-neutral-600 dark:text-neutral-400">
+                  <p class="text-sm text-neutral-600 dark:text-neutral-600 line-clamp-2">
                     A short story about my journey from math competitions to ML/AI.
                   </p>
-                  <div class="mt-2.5 text-xs font-medium text-neutral-800 dark:text-neutral-300">
+                  <div class="mt-2.5 text-xs font-medium text-neutral-500 dark:text-neutral-500">
                     Posted on February 1, 2026
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Post 2 -->
-            <div
-              class="relative border border-transparent border cursor-pointer p-5 group rounded-2xl"
-              onclick="location.href='https://your-link-post-2.com'"
-            >
-              <div
-                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
-              ></div>
-              <div
-                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
-              ></div>
-              <div
-                class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4"
-              >
-                <img
-                  src="assets/images/post-2.png"
-                  alt="Post 2 thumbnail"
-                  class="w-20 h-20 rounded-xl object-cover flex-shrink-0"
-                />
+            <div class="relative border border-transparent cursor-pointer p-5 group rounded-2xl" onclick="location.href='https://your-link-post-1.com'">
+              <div class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white dark:bg-white border-2 border-neutral-700 dark:border-neutral-700 rounded-2xl group-hover:-translate-x-1 group-hover:-translate-y-1"></div>
+              <div class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border-neutral-400 dark:border-neutral-400 rounded-2xl group-hover:translate-x-1 group-hover:translate-y-1"></div>
+              <div class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4">
+                <img src="assets/images/post-1.png" alt="Post 1 thumbnail" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-neutral-200" />
                 <div>
                   <h3 class="flex items-center mb-2">
-                    <a
-                      href="https://your-link-post-2.com"
-                      class="text-base font-bold leading-tight tracking-tight sm:text-lg dark:text-neutral-100"
-                    >
-                      5 Lessons from Competitive Math for ML
+                    <a href="https://your-link-post-1.com" class="text-base font-bold leading-tight tracking-tight sm:text-lg text-neutral-900 dark:text-neutral-900">
+                      How I Got Into Machine Learning
                     </a>
                   </h3>
-                  <p class="text-sm text-neutral-600 dark:text-neutral-400">
-                    What Vietnam Mathematical Olympiad taught me about problem solving.
+                  <p class="text-sm text-neutral-600 dark:text-neutral-600 line-clamp-2">
+                    A short story about my journey from math competitions to ML/AI.
                   </p>
-                  <div class="mt-2.5 text-xs font-medium text-neutral-800 dark:text-neutral-300">
-                    Posted on January 31, 2026
+                  <div class="mt-2.5 text-xs font-medium text-neutral-500 dark:text-neutral-500">
+                    Posted on February 1, 2026
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Post 3 -->
-            <div
-              class="relative border border-transparent border cursor-pointer p-5 group rounded-2xl"
-              onclick="location.href='https://your-link-post-3.com'"
-            >
-              <div
-                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
-              ></div>
-              <div
-                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
-              ></div>
-              <div
-                class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4"
-              >
-                <img
-                  src="assets/images/post-3.png"
-                  alt="Post 3 thumbnail"
-                  class="w-20 h-20 rounded-xl object-cover flex-shrink-0"
-                />
+            <div class="relative border border-transparent cursor-pointer p-5 group rounded-2xl" onclick="location.href='https://your-link-post-1.com'">
+              <div class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white dark:bg-white border-2 border-neutral-700 dark:border-neutral-700 rounded-2xl group-hover:-translate-x-1 group-hover:-translate-y-1"></div>
+              <div class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border-neutral-400 dark:border-neutral-400 rounded-2xl group-hover:translate-x-1 group-hover:translate-y-1"></div>
+              <div class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4">
+                <img src="assets/images/post-1.png" alt="Post 1 thumbnail" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-neutral-200" />
                 <div>
                   <h3 class="flex items-center mb-2">
-                    <a
-                      href="https://your-link-post-3.com"
-                      class="text-base font-bold leading-tight tracking-tight sm:text-lg dark:text-neutral-100"
-                    >
-                      Building My First ML Portfolio Project
+                    <a href="https://your-link-post-1.com" class="text-base font-bold leading-tight tracking-tight sm:text-lg text-neutral-900 dark:text-neutral-900">
+                      How I Got Into Machine Learning
                     </a>
                   </h3>
-                  <p class="text-sm text-neutral-600 dark:text-neutral-400">
-                    How I planned, built, and shipped my first real ML project.
+                  <p class="text-sm text-neutral-600 dark:text-neutral-600 line-clamp-2">
+                    A short story about my journey from math competitions to ML/AI.
                   </p>
-                  <div class="mt-2.5 text-xs font-medium text-neutral-800 dark:text-neutral-300">
-                    Posted on January 30, 2026
+                  <div class="mt-2.5 text-xs font-medium text-neutral-500 dark:text-neutral-500">
+                    Posted on February 1, 2026
                   </div>
                 </div>
               </div>
             </div>
 
-            <!-- Post 4 -->
-            <div
-              class="relative border border-transparent border cursor-pointer p-5 group rounded-2xl"
-              onclick="location.href='https://your-link-post-4.com'"
-            >
-              <div
-                class="absolute inset-0 z-20 w-full h-full duration-300 ease-out bg-white border border dark:bg-neutral-950 rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:-translate-x-1 group-hover:-translate-y-1"
-              ></div>
-              <div
-                class="absolute inset-0 z-10 w-full h-full duration-300 ease-out border border rounded-2xl border-neutral-300 dark:border-neutral-600 group-hover:translate-x-1 group-hover:translate-y-1"
-              ></div>
-              <div
-                class="relative z-30 duration-300 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4"
-              >
-                <img
-                  src="assets/images/post-4.png"
-                  alt="Post 4 thumbnail"
-                  class="w-20 h-20 rounded-xl object-cover flex-shrink-0"
-                />
-                <div>
-                  <h3 class="flex items-center mb-2">
-                    <a
-                      href="https://your-link-post-4.com"
-                      class="text-base font-bold leading-tight tracking-tight sm:text-lg dark:text-neutral-100"
-                    >
-                      Notes on Balancing School, Research, and Life
-                    </a>
-                  </h3>
-                  <p class="text-sm text-neutral-600 dark:text-neutral-400">
-                    Some reflections on productivity, focus, and avoiding burnout.
-                  </p>
-                  <div class="mt-2.5 text-xs font-medium text-neutral-800 dark:text-neutral-300">
-                    Posted on January 29, 2026
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Nút xem tất cả bài viết -->
             <div class="flex items-center justify-center w-full py-5">
               <a href="content.html" class="btn btn-secondary">
                 View All My Posts <i class="fas fa-arrow-right ml-2"></i>
@@ -476,88 +294,82 @@
       </div>
     </section>
 
-    <!-- ==================== FOOTER ==================== -->
     <footer id="footer">
-      <div class="container">
-        
-        <div class="left">
-          <a href="mailto:leadungx@gmail.com">leadungx@gmail.com</a>
+      <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center py-8">
+        <div class="left text-center md:text-left mb-4 md:mb-0">
+          <a href="mailto:leadungx@gmail.com" class="block mb-2">leadungx@gmail.com</a>
           <div class="attribution">
             <p>&copy; 2026 Communitypro</p>
           </div>
         </div>
-    
-        <div class="social">
-          <a href="https://www.linkedin.com/in/dungx" target="_blank">
-            <img src="./assets/icon/linkedin-icon.svg" alt="Linkedin"/>
-          </a>
-          <a href="https://github.com/dungx-o" target="_blank">
-            <img src="./assets/icon/github-icon.svg" alt="GitHub"/>
-          </a>
-          <a href="https://zalo.me/0917787611" target="_blank">
-            <img src="./assets/icon/zalo-icon.svg" alt="Zalo"/>
-          </a>
+        <div class="social flex gap-4">
+          <a href="https://www.linkedin.com/in/dungx" target="_blank"><img src="./assets/icon/linkedin-logo.svg" alt="Linkedin" class="w-6 h-6"/></a>
+          <a href="https://github.com/dungx-o" target="_blank"><img src="./assets/icon/github-logo.svg" alt="GitHub" class="w-6 h-6"/></a>
+          <a href="https://zalo.me/0917787611" target="_blank"><img src="./assets/icon/zalo-logo.svg" alt="Zalo" class="w-6 h-6"/></a>
         </div>
-    
       </div>
     </footer>
     
-    <!-- Script chính cho navbar, dark mode, v.v... -->
     <script src="js/script.js"></script>
-
-    <!-- Script nhỏ riêng cho highlight menu + nút "Let's checkout my projects" -->
     <script>
-      // Highlight item trong navbar tương ứng với trang hiện tại
+      // Highlight navbar link
       const links = document.querySelectorAll(".nav-link");
       const currentPage = window.location.pathname.split("/").pop();
-    
       links.forEach((link) => {
         if (link.getAttribute("href") === currentPage) {
           link.classList.add("active");
         }
       });
-
-      // Scroll mượt xuống section projects khi bấm vào nút ở giữa trang
-      // và trừ đi chiều cao navbar để không che mất chữ "Projects"
+      // Scroll to Projects
       const scrollToProjects = document.getElementById("scroll-to-projects");
+
       if (scrollToProjects) {
         scrollToProjects.addEventListener("click", () => {
           const projectsSection = document.getElementById("projects");
-          if (projectsSection) {
-            const navbar = document.querySelector(".navbar");
-            const navbarHeight = navbar ? navbar.offsetHeight : 80;
 
+          if (projectsSection) {
             const sectionTop =
               projectsSection.getBoundingClientRect().top + window.pageYOffset;
 
+            const y =
+              sectionTop -
+              window.innerHeight / 2 +
+              projectsSection.offsetHeight / 2;
+
             window.scrollTo({
-              top: sectionTop - navbarHeight - 10, // trừ thêm 10px cho thoáng
+              top: y,
               behavior: "smooth",
             });
           }
         });
       }
 
-      // Scroll mượt xuống section content khi bấm vào "Let's check out my content"
+
+      // Scroll to Content
       const scrollToContent = document.getElementById("scroll-to-content");
+
       if (scrollToContent) {
         scrollToContent.addEventListener("click", () => {
           const contentSection = document.getElementById("content-preview");
-          if (contentSection) {
-            const navbar = document.querySelector(".navbar");
-            const navbarHeight = navbar ? navbar.offsetHeight : 80;
 
+          if (contentSection) {
             const sectionTop =
               contentSection.getBoundingClientRect().top + window.pageYOffset;
 
+            const y =
+              sectionTop -
+              window.innerHeight / 2 +
+              contentSection.offsetHeight / 2;
+
             window.scrollTo({
-              top: sectionTop - navbarHeight - 10,
+              top: y,
               behavior: "smooth",
             });
           }
         });
       }
+
+
     </script>
-    
   </body>
 </html>
