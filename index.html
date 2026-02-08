@@ -465,19 +465,22 @@
           resetInactivityTimer();
 
           // Nếu ở trên cùng trang (top < 50px) thì luôn hiện
-          if (scrollTop < 400) {
+          if (scrollTop < 200) {
               showNavbar();
               lastScrollTop = scrollTop;
               return;
           }
 
+          let scrollDistance = Math.abs(scrollTop - lastScrollTop);
           // Logic ẩn/hiện khi cuộn
           if (scrollTop > lastScrollTop) {
               // Đang vuốt xuống -> Ẩn Navbar
               hideNavbar();
           } else {
               // Đang vuốt lên -> Hiện Navbar
-              showNavbar();
+              if (scrollDistance > 12) {
+                showNavbar();
+              }
           }
           
           lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; // Tránh số âm
