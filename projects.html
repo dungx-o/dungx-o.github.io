@@ -43,7 +43,7 @@
 
   <body class="bg-white text-neutral-900 dark:bg-black dark:text-white">
 
-    <nav id="main-navbar" class="navbar sticky top-0 z-50 w-full bg-white/90 dark:bg-black backdrop-blur-sm dark:backdrop-blur-none border-b border-neutral-200 dark:border-gray-800">
+    <nav id="main-navbar" class="navbar sticky top-0 z-[100] w-full bg-white/90 dark:bg-black backdrop-blur-sm dark:backdrop-blur-none border-b border-neutral-200 dark:border-gray-800">
     <div class="w-full max-w-[1120px] mx-auto flex justify-between items-center h-16 px-4 md:px-8">
         <h1 id="logo">
             <a href="index.html"><img id="logo-img" src="./assets/favicon/logo.svg" alt="Logo của tôi"/></a>
@@ -73,120 +73,300 @@
     </div>
   </nav>
 
-  <section id="projects" class="project-container max-w-5xl mx-auto px-4 md:px-8 pt-8">
-    <div class="content-text mb-10">
-      <h2 class="text-3xl font-bold mb-4">Projects</h2>
-      <p>I’m currently focused on learning and researching machine learning, AI agents, and their applications. I build and train ML models, develop AI agents, and design automated workflows, aiming to turn research into practical, real-world AI products.</p>
-    </div>
-  
-    <article class="project grid grid-cols-1 md:grid-cols-2 gap-6">
+  <header id="hero" class="relative w-full min-h-[calc(100vh-64px)] flex items-center justify-center">
+    <div class="max-w-[var(--width-medium)] mx-auto w-full px-4 md:px-8 py-10">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-12 w-full">
+          
+            <div class="flex-1 text-center md:text-left flex flex-col items-center md:items-start z-10">
+                <h1 class="text-4xl md:text-6xl font-bold dark:text-white">Hi, I'm Dũng.</h1>
+                
+                <div class="content-text mt-4 w-full">
+                  <h2 class="text-xl md:text-2xl font-bold 
+                    !text-blue-700 
+                    dark:!text-blue-400">
+                    Aspiring ML/AI Engineer
+                  </h2>
+
+                    <div class="block md:hidden mt-6 mb-8">
+                        <img 
+                            src="assets/images/photo.png"
+                            class="w-full max-w-[18rem] mx-auto aspect-[790/1189] object-cover shadow-lg border-2 border-transparent dark:border-white/20"
+                            style="border-radius:50% / 40%;"
+                        >
+                    </div>
+
+                    <div class="space-y-3 mt-4 text-gray-700 dark:text-gray-300 text-base md:text-lg">
+                        <p>Computer Science Student at Hanoi University of Science and Technology (HUST)</p>
+                        <p><strong class="text-black dark:text-white">Hard skills:</strong> Python, C/C++, HTML, Bilingual (English, Vietnamese)</p>
+                        <p><strong class="text-black dark:text-white">Key highlights:</strong> Third Prize in VMO, Silver Medal in National Student Mathematics Olympiad</p>
+                    </div>
+                </div>
+            
+                <a href="about.html" class="group inline-flex items-center gap-0 px-4 py-1.5 text-sm font-medium 
+                  text-neutral-600 dark:text-neutral-300 
+                  border border-neutral-400 dark:border-neutral-600 
+                  rounded-full 
+                  bg-transparent 
+                  hover:text-black dark:hover:text-white 
+                  hover:border-black dark:hover:border-white
+                  mt-8">
+                  More about me 
+                  <i class="fas fa-arrow-right text-xs scale-75 group-hover:translate-x-1"></i>
+                </a>
+            </div>
       
-      <div class="card border border-neutral-200 dark:border-gray-800 rounded-lg p-4">
-        <div class="project-info">
-          <div class="project-bio">
-            <h3 class="font-bold">Project 1</h3>
-            <p class="text-sm text-gray-500">React, Redux, SASS</p>
+            <div class="flex-1 hidden md:flex justify-end items-center relative">
+                <div class="relative w-full max-w-[21rem] mr-6">
+                    
+                    <div class="absolute inset-0 z-0 scale-110 rounded-[50%/40%] border border-neutral-400 
+                                bg-gradient-to-r from-white via-neutral-50 to-white shadow-sm
+                                dark:bg-gradient-to-br dark:from-white dark:via-gray-100 dark:to-white dark:border-transparent"></div>
+              
+                    <img  
+                        src="assets/images/photo.png" 
+                        loading="eager" 
+                        class="profile-image relative z-10 w-full aspect-[790/1189] object-cover shadow-2xl dark:brightness-100" 
+                        style="border-radius: 50% / 40%;" 
+                        alt="Dũng">
+                </div>
+            </div>
+    
+        </div>
+    </div>
+  </header>
+
+    <div class="relative my-32 flex justify-center">
+      <div class="relative w-full max-w-5xl">
+        <div class="w-full h-px bg-neutral-200 dark:bg-neutral-800"></div>
+      </div>
+      <div id="scroll-to-projects" class="absolute flex items-center justify-center px-2.5 py-1 tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-full left-1/2 -translate-x-1/2 shadow-sm cursor-pointer" style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background);">
+        <p class="flex items-center gap-1 leading-none opacity-70">
+          Let's check out my projects
+          <svg class="w-2.5 h-2.5 animate-bounce-slow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" />
+          </svg>
+        </p>
+      </div>
+    </div>
+
+    <section id="projects" class="project-container max-w-5xl mx-auto">
+      <div class="content-text">
+        <h2>Projects</h2>
+        <p>Here are some of my recent projects. I'm continuously building, experimenting, and learning, so check back often to see what's new.</p>
+      </div>
+
+      <article class="project">
+        <div class="card">
+          <div class="project-info">
+            <div class="project-bio">
+              <h3>Project One</h3>
+              <p>React, Redux, SASS</p>
+            </div>
+            <div class="project-link">
+              <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+              <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+            </div>
           </div>
-          <div class="project-link mt-4 flex gap-3">
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+        </div>
+        <div class="card">
+            <div class="project-info">
+              <div class="project-bio">
+                <h3>Project Two</h3>
+                <p>React, Redux, SASS</p>
+              </div>
+              <div class="project-link">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="project-info">
+              <div class="project-bio">
+                <h3>Project Three</h3>
+                <p>React, Redux, SASS</p>
+              </div>
+              <div class="project-link">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="project-info">
+              <div class="project-bio">
+                <h3>Project Four</h3>
+                <p>React, Redux, SASS</p>
+              </div>
+              <div class="project-link">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="project-info">
+              <div class="project-bio">
+                <h3>Project Five</h3>
+                <p>React, Redux, SASS</p>
+              </div>
+              <div class="project-link">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <div class="project-info">
+              <div class="project-bio">
+                <h3>Project Six</h3>
+                <p>React, Redux, SASS</p>
+              </div>
+              <div class="project-link">
+                <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
+              </div>
+            </div>
+          </div>
+      </article>
+      
+      <div class="flex justify-center mt-10">
+        <a href="projects.html" class="group inline-flex items-center gap-0 px-4 py-1.5 text-sm font-medium 
+            text-neutral-600 dark:text-neutral-300 
+            border border-neutral-400 dark:border-neutral-600 
+            rounded-full 
+            bg-transparent 
+            hover:text-black dark:hover:text-white 
+            hover:border-black dark:hover:border-white">
+            View all projects 
+            <i class="fas fa-arrow-right text-xs scale-75 group-hover:translate-x-1"></i>
+        </a>
+      </div>
+    </section>
+
+    <div class="relative my-32 flex justify-center">
+      <div class="relative w-full max-w-5xl">
+        <div class="w-full h-px bg-neutral-200 dark:bg-neutral-800"></div>
+      </div>
+      
+      <div id="scroll-to-content" class="absolute flex items-center justify-center px-2.5 py-1 tracking-widest text-[0.6rem] -translate-y-1/2 border border-solid rounded-full left-1/2 -translate-x-1/2 shadow-sm cursor-pointer" style="background-color: var(--bg-primary); color: var(--text-color); border-color: var(--card-background);">
+        <p class="flex items-center gap-1 leading-none opacity-70">
+          Let's check out my content
+          <svg class="w-2.5 h-2.5 animate-bounce-slow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m0 0l6.75-6.75M12 19.5l-6.75-6.75" />
+          </svg>
+        </p>
+      </div>
+    </div>
+
+    <section id="content-preview" class="project-container max-w-5xl mx-auto">
+        <div class="content-text mb-10"> 
+        <h2 class="text-left">Content</h2>
+        <p class="text-left">
+          I use this space to share what I’m learning and discovering along my journey. Here are some of my recent posts.
+        </p>
+      </div>
+
+      <div class="w-full my-7">
+        <div class="flex flex-col items-center">
+          <div class="w-full space-y-7">
+            <div class="relative border border-transparent cursor-pointer p-5 group rounded-2xl" onclick="location.href='https://your-link-post-1.com'">
+        
+              <div class="absolute inset-0 z-20 w-full h-full bg-white dark:bg-neutral-950 border-2 border-neutral-700 dark:border-neutral-600 rounded-2xl group-hover:-translate-x-1 group-hover:-translate-y-1"></div>
+              
+              <div class="absolute inset-0 z-10 w-full h-full border border-neutral-400 dark:border-neutral-700 rounded-2xl group-hover:translate-x-1 group-hover:translate-y-1"></div>
+              
+              <div class="relative z-30 group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4">
+                <img src="assets/images/post-1.png" alt="Post 1 thumbnail" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-neutral-200 dark:border-neutral-700" />
+                
+                <div>
+                  <h3 class="flex items-center mb-2">
+                    <a href="https://your-link-post-1.com" class="text-base font-bold leading-tight tracking-tight sm:text-lg text-neutral-900 dark:text-neutral-100">
+                      How I Got Into Machine Learning
+                    </a>
+                  </h3>
+                  
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2">
+                    A short story about my journey from math competitions to ML/AI.
+                  </p>
+                  
+                  <div class="mt-2.5 text-xs font-medium text-neutral-500 dark:text-neutral-500">
+                    Posted on February 1, 2026
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="relative border border-transparent cursor-pointer p-5 group rounded-2xl" onclick="location.href='https://your-link-post-1.com'">
+        
+              <div class="absolute inset-0 z-20 w-full h-full bg-white dark:bg-neutral-950 border-2 border-neutral-700 dark:border-neutral-600 rounded-2xl group-hover:-translate-x-1 group-hover:-translate-y-1"></div>
+              
+              <div class="absolute inset-0 z-10 w-full h-full border border-neutral-400 dark:border-neutral-700 rounded-2xl group-hover:translate-x-1 group-hover:translate-y-1"></div>
+              
+              <div class="relative z-30 ease-out group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4">
+                <img src="assets/images/post-1.png" alt="Post 1 thumbnail" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-neutral-200 dark:border-neutral-700" />
+                
+                <div>
+                  <h3 class="flex items-center mb-2">
+                    <a href="https://your-link-post-1.com" class="text-base font-bold leading-tight tracking-tight sm:text-lg text-neutral-900 dark:text-neutral-100">
+                      How I Got Into Machine Learning
+                    </a>
+                  </h3>
+                  
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2">
+                    A short story about my journey from math competitions to ML/AI.
+                  </p>
+                  
+                  <div class="mt-2.5 text-xs font-medium text-neutral-500 dark:text-neutral-500">
+                    Posted on February 1, 2026
+                  </div>
+                </div>
+              </div>
+            </div>
+          
+            <div class="relative border border-transparent cursor-pointer p-5 group rounded-2xl" onclick="location.href='https://your-link-post-1.com'">
+        
+              <div class="absolute inset-0 z-20 w-full h-full bg-white dark:bg-neutral-950 border-2 border-neutral-700 dark:border-neutral-600 rounded-2xl group-hover:-translate-x-1 group-hover:-translate-y-1"></div>
+              
+              <div class="absolute inset-0 z-10 w-full h-full border border-neutral-400 dark:border-neutral-700 rounded-2xl group-hover:translate-x-1 group-hover:translate-y-1"></div>
+              
+              <div class="relative z-30 group-hover:-translate-x-1 group-hover:-translate-y-1 flex gap-4">
+                <img src="assets/images/post-1.png" alt="Post 1 thumbnail" class="w-20 h-20 rounded-xl object-cover flex-shrink-0 border border-neutral-200 dark:border-neutral-700" />
+                
+                <div>
+                  <h3 class="flex items-center mb-2">
+                    <a href="https://your-link-post-1.com" class="text-base font-bold leading-tight tracking-tight sm:text-lg text-neutral-900 dark:text-neutral-100">
+                      How I Got Into Machine Learning
+                    </a>
+                  </h3>
+                  
+                  <p class="text-sm text-neutral-600 dark:text-neutral-400 line-clamp-2">
+                    A short story about my journey from math competitions to ML/AI.
+                  </p>
+                  
+                  <div class="mt-2.5 text-xs font-medium text-neutral-500 dark:text-neutral-500">
+                    Posted on February 1, 2026
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+          <div class="flex items-center justify-center w-full py-5">
+            <a href="content.html" class="group inline-flex items-center gap-0 px-4 py-1.5 text-sm font-medium 
+                text-neutral-600 dark:text-neutral-300 
+                border border-neutral-400 dark:border-neutral-600 
+                rounded-full 
+                bg-transparent 
+                hover:text-black dark:hover:text-white 
+                hover:border-black dark:hover:border-white">
+                Read all posts 
+                <i class="fas fa-arrow-right text-xs scale-75 group-hover:translate-x-1"></i>
+            </a>
+          </div>
           </div>
         </div>
       </div>
-  
-      <div class="card border border-neutral-200 dark:border-gray-800 rounded-lg p-4">
-        <div class="project-info">
-          <div class="project-bio">
-            <h3 class="font-bold">Project Two</h3>
-            <p class="text-sm text-gray-500">Python, PyTorch, LLMs</p>
-          </div>
-          <div class="project-link mt-4 flex gap-3">
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="card border border-neutral-200 dark:border-gray-800 rounded-lg p-4">
-        <div class="project-info">
-          <div class="project-bio">
-            <h3 class="font-bold">Project Three</h3>
-            <p class="text-sm text-gray-500">Node.js, LangChain</p>
-          </div>
-          <div class="project-link mt-4 flex gap-3">
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="card border border-neutral-200 dark:border-gray-800 rounded-lg p-4">
-        <div class="project-info">
-          <div class="project-bio">
-            <h3 class="font-bold">Project Four</h3>
-            <p class="text-sm text-gray-500">TensorFlow, Keras</p>
-          </div>
-          <div class="project-link mt-4 flex gap-3">
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="card border border-neutral-200 dark:border-gray-800 rounded-lg p-4">
-        <div class="project-info">
-          <div class="project-bio">
-            <h3 class="font-bold">Project Five</h3>
-            <p class="text-sm text-gray-500">OpenCV, FastAPI</p>
-          </div>
-          <div class="project-link mt-4 flex gap-3">
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="card border border-neutral-200 dark:border-gray-800 rounded-lg p-4">
-        <div class="project-info">
-          <div class="project-bio">
-            <h3 class="font-bold">Project Six</h3>
-            <p class="text-sm text-gray-500">AutoGPT, CrewAI</p>
-          </div>
-          <div class="project-link mt-4 flex gap-3">
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="card border border-neutral-200 dark:border-gray-800 rounded-lg p-4">
-        <div class="project-info">
-          <div class="project-bio">
-            <h3 class="font-bold">Project Seven</h3>
-            <p class="text-sm text-gray-500">NLP, Transformers</p>
-          </div>
-          <div class="project-link mt-4 flex gap-3">
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-          </div>
-        </div>
-      </div>
-  
-      <div class="card border border-neutral-200 dark:border-gray-800 rounded-lg p-4">
-        <div class="project-info">
-          <div class="project-bio">
-            <h3 class="font-bold">Project Eight</h3>
-            <p class="text-sm text-gray-500">Reinforcement Learning</p>
-          </div>
-          <div class="project-link mt-4 flex gap-3">
-            <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" target="_blank"><i class="fas fa-globe"></i></a>
-          </div>
-        </div>
-      </div>
-  
-    </article>
-  </section>
+    </section>
 
     <footer id="footer">
       <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center py-4">
