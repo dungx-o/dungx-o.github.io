@@ -189,6 +189,16 @@ h2::selection {
   background: url(../assets/project/engineering-team.png) center center/cover;
 }
 
+/* Project 7 */
+.card:nth-child(7) {
+  background: url(../assets/project/career-digital-twin.jpeg) center center/cover;
+}
+
+/* Project 8 */
+.card:nth-child(8) {
+  background: url(../assets/project/sdr.png) center center/cover;
+}
+
 /* ==================== MEDIA QUERIES ==================== */
 @media (max-width: 768px) {
   .header-container {
